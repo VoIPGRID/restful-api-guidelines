@@ -21,7 +21,7 @@ proper link relationships in your APIs as stated in rules below.
 
 
 [#163]
-== {MAY} use REST maturity level 3 - HATEOAS
+== {SHOULD} avoid REST maturity level 3 - HATEOAS
 
 We do not generally recommend to implement
 http://martinfowler.com/articles/richardsonMaturityModel.html#level3[REST
@@ -58,13 +58,6 @@ HATEOAS] and others for a detailed discussion):
   human facing service domain.
 * Hypermedia does not prevent API clients to implement shortcuts and directly
   target resources without 'discovering' them.
-
-However, we do not forbid HATEOAS; you could use it, if you checked its
-limitations and still see clear value for your usage scenario that justifies
-its additional complexity. If you use HATEOAS please share experience and
-present your findings in the
-https://confluence.zalando.net/display/GUL/API+Guild[API Guild [internal
-link]].
 
 
 [#164]

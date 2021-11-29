@@ -36,7 +36,7 @@ Robustness Principle] (see also https://tools.ietf.org/html/rfc1122[RFC 1122]):
 
 * Be liberal in what you accept, be conservative in what you send
 
-_Readings:_ Some interesting reads on the RESTful API design style and service architecture:
+_Readings:_ Here are some recommended reads on the RESTful API design style and service architecture:
 
 * Article:
 https://www.thoughtworks.com/de/insights/blog/rest-api-design-resource-modeling[REST API Design - Resource Modeling]
@@ -58,11 +58,9 @@ Styles and the Design of Network-Based Software Architectures]
 [[api-as-a-product]]
 == API as a product
 
-As mentioned above, Zalando is transforming from an online shop into an
-expansive fashion platform comprising a rich set of products following a
-Software as a Platform (SaaP) model for our business partners. As a
-company we want to deliver products to our (internal and external)
-customers which can be consumed like a service.
+As part of our API strategy, we encourage product and platform thinking.
+This should be expressed in the delivery of APIs as parts of a coherent
+platform.
 
 Platform products provide their functionality via (public) APIs; hence,
 the design of our APIs should be based on the API as a Product
@@ -97,10 +95,7 @@ API as a Product is closely related to our <<100,API First principle>>
 [[api-first]]
 == API first 
 
-API First is one of our
-https://github.com/zalando/engineering-principles[engineering
-and architecture principles]. In a nutshell API First requires two
-aspects:
+In a nutshell API First requires two aspects:
 
 * define APIs first, before coding its implementation, using a standard specification
 language

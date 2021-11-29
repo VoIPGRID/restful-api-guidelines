@@ -125,11 +125,10 @@ groups with clear organisational and legal boundaries:
   specific product portfolio owned by the same business unit.
 *company-internal*::
   The API consumers with this audience are restricted to applications owned
-  by the business units of the same the company (e.g. Zalando company with
-  Zalando SE, Zalando Payments SE & Co. KG. etc.)
+  by the business units of the same the organisation.
 *external-partner*::
   The API consumers with this audience are restricted to applications of
-  business partners of the company owning the API and the company itself.
+  business partners of the organisation owning the API and the organisation itself.
 *external-public*::
   APIs with this audience can be accessed by anyone with Internet access.
 
@@ -189,7 +188,7 @@ _host_, _permission_, and _event names_ within an the application landscape. It
 helps to preserve uniqueness of names while giving readers meaningful context
 information about the addressed component. Besides, the most important aspect
 is, that it allows to keep APIs stable in the case of technical and
-organizational changes (Zalando for example maintains an internal naming convention).
+organizational changes.
 
 A unique `functional-name` is assigned to each functional component serving an API. 
 It is built of the domain name of the functional group the component is belonging 
