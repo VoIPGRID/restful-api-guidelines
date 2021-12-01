@@ -52,7 +52,6 @@ assets:
 	cp -r assets $(DIRBUILDS)/assets;
 	cp -r models $(DIRBUILDS)/models;
 	cp -r models/{problem-1.0.{0,1},money-1.0.0}.yaml $(DIRBUILDS);
-	cp -r -n legacy/* $(DIRBUILDS);
 
 rules: check-rules
 	$(DIRSCRIPTS)/generate-rules-json.sh  | \
