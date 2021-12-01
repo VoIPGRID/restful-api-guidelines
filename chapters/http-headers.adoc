@@ -335,6 +335,10 @@ Remember that HTTP header field names are not case-sensitive:
 |=======================================================================
 |Header field name |Type |Description |Header field value example
 
+|[[x-example]]{X-Example}|String|
+For more information see above.
+|There once was a custom header
+|=======================================================================
 
 [#184]
 == {MUST} propagate proprietary headers
