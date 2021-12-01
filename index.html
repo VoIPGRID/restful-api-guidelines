@@ -5,9 +5,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.16">
-<meta name="keywords" content="Zalando, Guidelines, RESTful, API, Events, Schema">
+<meta name="keywords" content="Guidelines, RESTful, API, Events, Schema">
 <meta name="copyright" content="CC-BY-SA 4.0">
-<title>Zalando RESTful API and Event Guidelines</title>
+<title>RESTful API and Event Guidelines</title>
 <style>
 /*! normalize.css v2.1.2 | MIT License | git.io/normalize */
 /* ========================================================================== HTML5 display definitions ========================================================================== */
@@ -1387,27 +1387,18 @@ table.CodeRay td.code{padding:0 0 0 .75em}
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_zalando_restful_api_and_event_guidelines"><a class="link" href="#_zalando_restful_api_and_event_guidelines">Zalando RESTful API and Event Guidelines</a></h2>
+<h2 id="_restful_api_and_event_guidelines"><a class="link" href="#_restful_api_and_event_guidelines">RESTful API and Event Guidelines</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p><a href="https://github.com/zalando/restful-api-guidelines">Github Repository</a>, <a href="https://opensource.zalando.com/">Zalando SE Opensource</a></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="assets/api-zalando-small.jpg" alt="API Guild Logo">
-</div>
-</div>
-<div class="paragraph">
-<p>Other formats: <a href="zalando-guidelines.pdf">PDF</a>, <a href="zalando-guidelines.epub">EPUB3</a><br></p>
-</div>
 <div id="toc" class="toc">
 <div id="toctitle" class="title">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_zalando_restful_api_and_event_guidelines">Zalando RESTful API and Event Guidelines</a></li>
+<li><a href="#_restful_api_and_event_guidelines">RESTful API and Event Guidelines</a></li>
 <li><a href="#introduction">1. Introduction</a>
 <ul class="sectlevel2">
+<li><a href="#introduction-origin">Origin</a></li>
+<li><a href="#introduction-overview">Overview</a></li>
 <li><a href="#conventions-used-in-these-guidelines">Conventions used in these guidelines</a></li>
-<li><a href="#zalando-specific-information">Zalando specific information</a></li>
+<li><a href="#introduction-purpose">Purpose</a></li>
 </ul>
 </li>
 <li><a href="#principles">2. Principles</a>
@@ -1422,7 +1413,7 @@ table.CodeRay td.code{padding:0 0 0 .75em}
 <li><a href="#100"><span class="must-keyword"><strong>MUST</strong></span> follow API first principle</a></li>
 <li><a href="#101"><span class="must-keyword"><strong>MUST</strong></span> provide API specification using OpenAPI</a></li>
 <li><a href="#102"><span class="should-keyword"><strong>SHOULD</strong></span> provide API user manual</a></li>
-<li><a href="#103"><span class="must-keyword"><strong>MUST</strong></span> write APIs using U.S. English</a></li>
+<li><a href="#103"><span class="must-keyword"><strong>MUST</strong></span> write APIs using U.K. English</a></li>
 <li><a href="#234"><span class="must-keyword"><strong>MUST</strong></span> only use durable and immutable remote references</a></li>
 </ul>
 </li>
@@ -1527,15 +1518,14 @@ table.CodeRay td.code{padding:0 0 0 .75em}
 <li><a href="#181"><span class="may-keyword"><strong>MAY</strong></span> consider to support <code>Prefer</code> header to handle processing preferences</a></li>
 <li><a href="#182"><span class="may-keyword"><strong>MAY</strong></span> consider to support <code>ETag</code> together with <code>If-Match</code>/<code>If-None-Match</code> header</a></li>
 <li><a href="#230"><span class="may-keyword"><strong>MAY</strong></span> consider to support <code>Idempotency-Key</code> header</a></li>
-<li><a href="#183"><span class="should-keyword"><strong>SHOULD</strong></span> use only the specified proprietary Zalando headers</a></li>
+<li><a href="#183"><span class="should-keyword"><strong>SHOULD</strong></span> use only the specified proprietary headers</a></li>
 <li><a href="#184"><span class="must-keyword"><strong>MUST</strong></span> propagate proprietary headers</a></li>
-<li><a href="#233"><span class="must-keyword"><strong>MUST</strong></span> support <code>X-Flow-ID</code></a></li>
 </ul>
 </li>
 <li><a href="#hypermedia">12. REST Design - Hypermedia</a>
 <ul class="sectlevel2">
 <li><a href="#162"><span class="must-keyword"><strong>MUST</strong></span> use REST maturity level 2</a></li>
-<li><a href="#163"><span class="may-keyword"><strong>MAY</strong></span> use REST maturity level 3 - HATEOAS</a></li>
+<li><a href="#163"><span class="should-keyword"><strong>SHOULD</strong></span> avoid REST maturity level 3 - HATEOAS</a></li>
 <li><a href="#164"><span class="must-keyword"><strong>MUST</strong></span> use common hypertext controls</a></li>
 <li><a href="#165"><span class="should-keyword"><strong>SHOULD</strong></span> use simple hypertext controls for pagination and self-references</a></li>
 <li><a href="#217"><span class="must-keyword"><strong>MUST</strong></span> use full, absolute URI for resource identification</a></li>
@@ -1590,42 +1580,7 @@ table.CodeRay td.code{padding:0 0 0 .75em}
 <li><a href="#193"><span class="should-keyword"><strong>SHOULD</strong></span> monitor API usage</a></li>
 </ul>
 </li>
-<li><a href="#events">18. EVENT Basics - Event Types</a>
-<ul class="sectlevel2">
-<li><a href="#208"><span class="must-keyword"><strong>MUST</strong></span> define events compliant with overall API guidelines</a></li>
-<li><a href="#194"><span class="must-keyword"><strong>MUST</strong></span> treat events as part of the service interface</a></li>
-<li><a href="#195"><span class="must-keyword"><strong>MUST</strong></span> make event schema available for review</a></li>
-<li><a href="#197"><span class="must-keyword"><strong>MUST</strong></span> specify and register events as event types</a></li>
-<li><a href="#213"><span class="must-keyword"><strong>MUST</strong></span> follow naming convention for event type names</a></li>
-<li><a href="#207"><span class="must-keyword"><strong>MUST</strong></span> indicate ownership of event types</a></li>
-<li><a href="#245"><span class="must-keyword"><strong>MUST</strong></span> carefully define the compatibility mode</a></li>
-<li><a href="#196"><span class="must-keyword"><strong>MUST</strong></span> ensure event schema conforms to OpenAPI schema object</a></li>
-<li><a href="#210"><span class="should-keyword"><strong>SHOULD</strong></span> avoid <code>additionalProperties</code> in event type schemas</a></li>
-<li><a href="#246"><span class="must-keyword"><strong>MUST</strong></span> use semantic versioning of event type schemas</a></li>
-</ul>
-</li>
-<li><a href="#event-categories">19. EVENT Basics - Event Catagories</a>
-<ul class="sectlevel2">
-<li><a href="#198"><span class="must-keyword"><strong>MUST</strong></span> ensure that events conform to an event category</a></li>
-<li><a href="#247"><span class="must-keyword"><strong>MUST</strong></span> provide mandatory event metadata</a></li>
-<li><a href="#211"><span class="must-keyword"><strong>MUST</strong></span> use unique event identifiers</a></li>
-<li><a href="#201"><span class="must-keyword"><strong>MUST</strong></span> use general events to signal steps in business processes</a></li>
-<li><a href="#203"><span class="should-keyword"><strong>SHOULD</strong></span> provide explicit event ordering for general events</a></li>
-<li><a href="#202"><span class="must-keyword"><strong>MUST</strong></span> use data change events to signal mutations</a></li>
-<li><a href="#242"><span class="must-keyword"><strong>MUST</strong></span> provide explicit event ordering for data change events</a></li>
-<li><a href="#204"><span class="should-keyword"><strong>SHOULD</strong></span> use the hash partition strategy for data change events</a></li>
-</ul>
-</li>
-<li><a href="#events-design">20. EVENT Design</a>
-<ul class="sectlevel2">
-<li><a href="#200"><span class="must-keyword"><strong>MUST</strong></span> ensure that events do not provide sensitive data</a></li>
-<li><a href="#214"><span class="must-keyword"><strong>MUST</strong></span> prepare event consumers for duplicate events</a></li>
-<li><a href="#212"><span class="should-keyword"><strong>SHOULD</strong></span> design for idempotent out-of-order processing</a></li>
-<li><a href="#199"><span class="must-keyword"><strong>MUST</strong></span> ensure that events define useful business resources</a></li>
-<li><a href="#205"><span class="should-keyword"><strong>SHOULD</strong></span> ensure that data change events match the APIs resources</a></li>
-<li><a href="#209"><span class="must-keyword"><strong>MUST</strong></span> maintain backwards compatibility for events</a></li>
-</ul>
-</li>
+<li><a href="#events">18. EVENT Basics - Event Types</a></li>
 <li><a href="#appendix-references">Appendix A: References</a>
 <ul class="sectlevel2">
 <li><a href="#openapi-specification">OpenAPI specification</a></li>
@@ -1659,17 +1614,24 @@ table.CodeRay td.code{padding:0 0 0 .75em}
 <div class="sect1">
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="introduction-origin"><a class="link" href="#introduction-origin">Origin</a></h3>
 <div class="paragraph">
-<p>Zalando’s software architecture centers around decoupled microservices
+<p>Our first attempts to compile a API guideline from scratch, made little sense when there are good open standards available in all sizes. We forked the [Zalando RESTful API guidelines](<a href="https://github.com/zalando/restful-api-guidelines" class="bare">https://github.com/zalando/restful-api-guidelines</a>) and adapted it to fit our needs.</p>
+</div>
+<div class="paragraph">
+<p>Since this is not based on our use case exactly, this document is meant to be a living document which can be improved overtime to fit our needs.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="introduction-overview"><a class="link" href="#introduction-overview">Overview</a></h3>
+<div class="paragraph">
+<p>Our architecture is centered around decoupled microservices
 that provide functionality via RESTful APIs with a JSON payload. Small
-engineering teams own, deploy and operate these microservices in their
-AWS (team) accounts. Our APIs most purely express what our systems do,
+engineering teams own, deploy and operate these microservices.
+Our APIs most purely express what our systems do,
 and are therefore highly valuable business assets. Designing
-high-quality, long-lasting APIs has become even more critical for us
-since we started developing our new open platform strategy, which
-transforms Zalando from an online shop into an expansive fashion
-platform. Our strategy emphasizes developing lots of public APIs for our
-external business partners to use via third-party applications.</p>
+high-quality, long-lasting APIs has become even more critical for our business.</p>
 </div>
 <div class="paragraph">
 <p>With this in mind, we’ve adopted "API First" as one of our key
@@ -1703,7 +1665,8 @@ ensure that our APIs:</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Ideally, all Zalando APIs will look like the same author created them.</p>
+<p>Ideally, all APIs will look like the same author created them.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="conventions-used-in-these-guidelines"><a class="link" href="#conventions-used-in-these-guidelines">Conventions used in these guidelines</a></h3>
@@ -1716,12 +1679,10 @@ interpreted as described in <a href="https://www.ietf.org/rfc/rfc2119.txt">RFC
 </div>
 </div>
 <div class="sect2">
-<h3 id="zalando-specific-information"><a class="link" href="#zalando-specific-information">Zalando specific information</a></h3>
+<h3 id="introduction-purpose"><a class="link" href="#introduction-purpose">Purpose</a></h3>
 <div class="paragraph">
 <p>The purpose of our "RESTful API guidelines" is to define standards to
-successfully establish "consistent API look and feel" quality. The
-<a href="https://confluence.zalando.net/display/GUL/API+Guild">API Guild [internal
-link</a>] drafted and owns this document. Teams are responsible to fulfill
+successfully establish "consistent API look and feel" quality. Teams are responsible to fulfill
 these guidelines during API development and are encouraged to contribute
 to guideline evolution via pull requests.</p>
 </div>
@@ -1797,7 +1758,7 @@ Robustness Principle</a> (see also <a href="https://tools.ietf.org/html/rfc1122"
 </ul>
 </div>
 <div class="paragraph">
-<p><em>Readings:</em> Some interesting reads on the RESTful API design style and service architecture:</p>
+<p><em>Readings:</em> Here are some recommended reads on the RESTful API design style and service architecture:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1834,11 +1795,9 @@ Styles and the Design of Network-Based Software Architectures</a></p>
 <div class="sect2">
 <h3 id="api-as-a-product"><a class="link" href="#api-as-a-product">API as a product</a></h3>
 <div class="paragraph">
-<p>As mentioned above, Zalando is transforming from an online shop into an
-expansive fashion platform comprising a rich set of products following a
-Software as a Platform (SaaP) model for our business partners. As a
-company we want to deliver products to our (internal and external)
-customers which can be consumed like a service.</p>
+<p>As part of our API strategy, we encourage product and platform thinking.
+This should be expressed in the delivery of APIs as parts of a coherent
+platform.</p>
 </div>
 <div class="paragraph">
 <p>Platform products provide their functionality via (public) APIs; hence,
@@ -1890,10 +1849,7 @@ developer experience.</p>
 <div class="sect2">
 <h3 id="api-first"><a class="link" href="#api-first">API first</a></h3>
 <div class="paragraph">
-<p>API First is one of our
-<a href="https://github.com/zalando/engineering-principles">engineering
-and architecture principles</a>. In a nutshell API First requires two
-aspects:</p>
+<p>In a nutshell API First requires two aspects:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1997,15 +1953,12 @@ Guideline compliance), already confirmed via team internal reviews.</p>
 OpenAPI as specification language</a></p>
 </li>
 <li>
-<p>You must design your APIs consistently with these guidelines; use our
-<a href="https://zally.zalando.net/">API Linter Service [internal link</a>] for automated
-rule checks.</p>
+<p>You must design your APIs consistently with these guidelines; use of a
+linter for automated rule checks.</p>
 </li>
 <li>
-<p>You must call for early review feedback from peers and client developers,
-and apply <a href="https://github.bus.zalan.do/ApiGuild/ApiReviewProcedure">our
-lightweight API review process [internal link</a>] for all component external
-APIs, i.e. all apis with <code>x-api-audience =/= component-internal</code> (see <a href="#219"><span class="must-keyword"><strong>MUST</strong></span> provide API audience</a>).</p>
+<p>You must call for early review feedback from peers and client developers for
+all component external APIs, i.e. all apis with <code>x-api-audience =/= component-internal</code> (see <a href="#219">API Audience</a>).</p>
 </li>
 </ul>
 </div>
@@ -2025,28 +1978,22 @@ code management system - best together with the implementing sources.</p>
 </div>
 <div class="paragraph">
 <p>You <a href="#192">must / should publish</a> the component <a href="#219">external / internal</a>
-API specification with the deployment of the implementing service, and, hence,
-make it discoverable for the group via our <a href="https://apis.zalando.net/">API Portal
-[internal link</a>].</p>
+API specification with the deployment of the implementing service.</p>
 </div>
 <div class="paragraph">
 <p><strong>Hint:</strong> A good way to explore <strong>OpenAPI 3.0/2.0</strong> is to navigate through the
 <a href="https://openapi-map.apihandyman.io/">OpenAPI specification mind map</a> and use
 our <a href="https://plugins.jetbrains.com/search?search=swagger+Monte">Swagger Plugin
 for IntelliJ IDEA</a> to create your first API. To explore and validate/evaluate
-existing APIs the <a href="https://editor.swagger.io/">Swagger Editor</a> or our
-<a href="https://apis.zalando.net">API Portal</a> may be a good starting point.</p>
+existing APIs the <a href="https://editor.swagger.io/">Swagger Editor</a> may be a good starting point.</p>
 </div>
 <div class="paragraph">
 <p><strong>Hint:</strong> We do not yet provide guidelines for <a href="https://graphql.org/">GraphQL</a>.
-Following our <a href="https://techradar.zalando.net/languages/graphql.html">Zalando
-Tech Radar [internal link</a>], we focus on resource oriented HTTP/REST API style
-(and related tooling and infrastructure support) for general purpose
+We focus on resource oriented HTTP/REST API style (and related tooling and infrastructure support) for general purpose
 peer-to-peer microservice communication. Here, we think that GraphQL has no
 major benefits, but a couple of downsides compared to REST. However, GraphQL
 can provide a lot of value for specific target domain problems, especially
-backends for frontends (BFF) and mobile clients, and here we already make use
-of GraphQL as API technology for our DX Interface Framework.</p>
+backends for frontends (BFF) and mobile clients.</p>
 </div>
 </div>
 <div class="sect2">
@@ -2076,13 +2023,13 @@ sequence flows</p>
 </div>
 <div class="paragraph">
 <p>The user manual must be published online, e.g. via our documentation hosting
-platform service, GHE pages, or specific team web servers. Please do not forget
+platform service, GH pages, or specific team web servers. Please do not forget
 to include a link to the API user manual into the API specification using the
 <code>#/externalDocs/url</code> property.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="103"><a class="link" href="#103"><span class="must-keyword"><strong>MUST</strong></span> write APIs using U.S. English</a></h3>
+<h3 id="103"><a class="link" href="#103"><span class="must-keyword"><strong>MUST</strong></span> write APIs using U.K. English</a></h3>
 
 </div>
 <div class="sect2">
@@ -2102,23 +2049,17 @@ service URLs:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code><a href="https://infrastructure-api-repository.zalandoapis.com/" class="bare">https://infrastructure-api-repository.zalandoapis.com/</a></code> <b>–</b> used to refer
+<p><code><a href="https://github.com/zalando/restful-api-guidelines" class="bare">https://github.com/zalando/restful-api-guidelines</a></code> <b>–</b> used to refer
 to user defined, immutable API specification revisions published via the
 internal API repository.</p>
 </li>
 <li>
-<p><code><a href="https://opensource.zalando.com/restful-api-guidelines/{model.yaml}" class="bare">https://opensource.zalando.com/restful-api-guidelines/{model.yaml}</a></code> <b>–</b>
+<p><code><a href="https://github.com/zalando/restful-api-guidelines/{model.yaml}" class="bare">https://github.com/zalando/restful-api-guidelines/{model.yaml}</a></code> <b>–</b>
 used to refer to guideline defined re-usable API fragments (see
 <code>{model.yaml}</code> files in <a href="https://github.com/zalando/restful-api-guidelines/tree/master/models">restful-api-guidelines/models</a>
 for details).</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><strong>Hint:</strong> The formerly used remote references to the <code>Problem</code> API fragment
-(aliases <code><a href="https://opensource.zalando.com/problem/" class="bare">https://opensource.zalando.com/problem/</a></code> and
-<code><a href="https://zalando.github.io/problem/" class="bare">https://zalando.github.io/problem/</a></code>) are deprecated, but still supported for
-compatibility (<a href="#176"><span class="must-keyword"><strong>MUST</strong></span> support problem JSON</a> on how to replace).</p>
 </div>
 <div class="paragraph">
 <p>As we control these URLs, we ensure that their content is <strong>durable</strong> and
@@ -2302,13 +2243,12 @@ specific product portfolio owned by the same business unit.</p>
 <dt class="hdlist1"><strong>company-internal</strong></dt>
 <dd>
 <p>The API consumers with this audience are restricted to applications owned
-by the business units of the same the company (e.g. Zalando company with
-Zalando SE, Zalando Payments SE &amp; Co. KG. etc.)</p>
+by the business units of the same the organisation.</p>
 </dd>
 <dt class="hdlist1"><strong>external-partner</strong></dt>
 <dd>
 <p>The API consumers with this audience are restricted to applications of
-business partners of the company owning the API and the company itself.</p>
+business partners of the organisation owning the API and the organisation itself.</p>
 </dd>
 <dt class="hdlist1"><strong>external-public</strong></dt>
 <dd>
@@ -2377,7 +2317,7 @@ API Audience narrative (internal link)</a>.</p>
 helps to preserve uniqueness of names while giving readers meaningful context
 information about the addressed component. Besides, the most important aspect
 is, that it allows to keep APIs stable in the case of technical and
-organizational changes (Zalando for example maintains an internal naming convention).</p>
+organizational changes.</p>
 </div>
 <div class="paragraph">
 <p>A unique <code>functional-name</code> is assigned to each functional component serving an API.
@@ -2423,7 +2363,7 @@ naming schema for <a href="#224">hostnames</a> and <a href="#213">event names</a
 <div class="paragraph">
 <p>Please see the following rules for detailed functional naming patterns:
 * <a href="#224"><span class="must-keyword"><strong>MUST</strong></span> follow naming convention for hostnames</a>
-* <a href="#213"><span class="must-keyword"><strong>MUST</strong></span> follow naming convention for event type names</a></p>
+* <a href="#213">[213]</a></p>
 </div>
 <div class="paragraph">
 <p><strong>Internal Guideance</strong>:  You <em>must</em> use the simple
@@ -2603,7 +2543,7 @@ as follows:</p>
 <p>In some cases a whole API or selected API endpoints may not require speciifc
 permissions, e.g. if information is public or protected by object level
 authorization. To make this explicit you should assign the <code>uid</code> pseudo
-permission, that is always available as OAuth2 default scope in Zalando.</p>
+permission, that is always available as OAuth2 default scope.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2764,7 +2704,7 @@ You <strong>must</strong> use these formats, whenever applicable:</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>string</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>email</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://tools.ietf.org/html/rfc5322">RFC 5322</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"<a href="mailto:example@zalando.de">example@zalando.de</a>"</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"<a href="mailto:example@example.com">example@example.com</a>"</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>string</code></p></td>
@@ -2776,7 +2716,7 @@ You <strong>must</strong> use these formats, whenever applicable:</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>string</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>hostname</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://tools.ietf.org/html/rfc1034">RFC 1034</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"www.zalando.de"</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"www.example.com"</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>string</code></p></td>
@@ -2800,7 +2740,7 @@ You <strong>must</strong> use these formats, whenever applicable:</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>string</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>uri</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://tools.ietf.org/html/rfc3986">RFC 3986</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"https://www.zalando.de/"</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"https://www.example.com/"</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>string</code></p></td>
@@ -2824,7 +2764,7 @@ You <strong>must</strong> use these formats, whenever applicable:</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>string</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>iri-reference</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://tools.ietf.org/html/rfc3987">RFC 3987</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"/damenbekleidung-jacken-mäntel/"</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"/woman-winter-jackets/"</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>string</code></p></td>
@@ -2886,7 +2826,7 @@ You <strong>must</strong> use these formats, whenever applicable:</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>string</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>iso-3166</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">two letter country code&#8201;&#8212;&#8201;see <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"GB"</code>  <strong>Hint:</strong> It is <code>"GB"</code>, not <code>"UK"</code>, even though <code>"UK"</code> has seen some use at Zalando.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"GB"</code>  <strong>Hint:</strong> It is <code>"GB"</code>, not <code>"UK"</code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>string</code></p></td>
@@ -3524,10 +3464,10 @@ a page. See <a href="#pagination">REST Design - Pagination</a> section below.</p
 <h2 id="json-guidelines"><a class="link" href="#json-guidelines">8. REST Basics - JSON payload</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>These guidelines provides recommendations for defining JSON data at Zalando.
-JSON here refers to <a href="https://tools.ietf.org/html/rfc7159">RFC 7159</a> (which updates <a href="https://tools.ietf.org/html/rfc4627">RFC 4627</a>),
+<p>These guidelines provides recommendations for defining JSON data referring to
+<a href="https://tools.ietf.org/html/rfc7159">RFC 7159</a> (which updates <a href="https://tools.ietf.org/html/rfc4627">RFC 4627</a>),
 the "application/json" media type and custom JSON media types defined for APIs.
-The guidelines clarifies some specific cases to allow Zalando JSON data to have
+The guidelines clarifies some specific cases to allow JSON data to have
 an idiomatic form across teams and services.</p>
 </div>
 <div class="sect2">
@@ -3595,7 +3535,7 @@ information. More specifically, for JSON payload you should use the standard med
 <code>application/json</code> (or <code>application/problem+json</code> for <a href="#176"><span class="must-keyword"><strong>MUST</strong></span> support problem JSON</a>).</p>
 </div>
 <div class="paragraph">
-<p>You should avoid using custom media types like <code>application/x.zalando.article+json</code>.
+<p>You should avoid using custom media types like <code>application/vendor.article+json</code>.
 Custom media types beginning with <code>x</code> bring no advantage compared to the
 standard media type for JSON, and make automated processing more difficult.</p>
 </div>
@@ -3853,22 +3793,10 @@ support common understanding for API consumers.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a id="id"></a><a href="#id"><code>id</code></a>: the identity of the object. If used, IDs must be opaque strings
+<p><a id="id"></a><a href="#id"><code>id</code></a>: the identity of the object. If used, IDs must be opaque strings(UUIDv4)
 and not numbers. IDs are unique within some documented context, are stable
 and don&#8217;t change for a given object once assigned, and are never recycled
 cross entities.</p>
-</li>
-<li>
-<p><a id="xyz_id"></a><a href="#xyz_id"><code>xyz_id</code></a>: an attribute within one object holding the identifier of
-another object must use a name that corresponds to the type of the referenced
-object or the relationship to the referenced object followed by <code>_id</code> (e.g.
-<code>partner_id</code> not <code>partner_number</code>, or <code>parent_node_id</code> for the reference to a parent
-node from a child node, even if both have the type <code>Node</code>).
-<strong>Exception</strong>: We use <code>customer_number</code> instead of <code>customer_id</code> for customer facing
-identification of customers due to legacy reasons. (Hint: <code>customer_id</code> used to be defined
-as internal only, technical integer key, see
-<a href="https://apis.zalando.net/redirect/5675b6ec-8934-11ea-929e-68f728c1ba70">Naming
-Decision: <code>customer_number</code> vs <code>customer_id</code> [internal link</a>]).</p>
 </li>
 <li>
 <p><a id="type"></a><a href="#type"><code>type</code></a>: the kind of thing this object is. If used, the type of this
@@ -4257,7 +4185,7 @@ using header parameters. From a conceptual point of view, the semantic of an
 operation should always be expressed by the resource names, as well as the
 involved path and query parameters. In other words by everything that goes into
 the URL. Request headers are reserved for general context information (see
-<a href="#183"><span class="should-keyword"><strong>SHOULD</strong></span> use only the specified proprietary Zalando headers</a>). In addition, size limits on query parameters and headers are not
+<a href="#183"><span class="should-keyword"><strong>SHOULD</strong></span> use only the specified proprietary headers</a>). In addition, size limits on query parameters and headers are not
 reliable and depend on clients, gateways, server, and actual settings. Thus,
 switching to headers does not solve the original problem.</p>
 </div>
@@ -4909,7 +4837,7 @@ The following examples should serve as ideas:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>name=Zalando</code>, to query for elements based on property equality</p>
+<p><code>name=Alice</code>, to query for elements based on property equality</p>
 </li>
 <li>
 <p><code>age=5</code>, to query for elements based on logical properties</p>
@@ -6024,11 +5952,11 @@ is not standardized in an RFC. Our only reference are the usage in the
 However, we do not want to change the header name and semantic, and
 do not name it like the proprietry headers below.
 The header addresses a generic REST concern and is different from the
-Zalando landscape specific proprietary headers.</p>
+specific proprietary headers.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="183"><a class="link" href="#183"><span class="should-keyword"><strong>SHOULD</strong></span> use only the specified proprietary Zalando headers</a></h3>
+<h3 id="183"><a class="link" href="#183"><span class="should-keyword"><strong>SHOULD</strong></span> use only the specified proprietary headers</a></h3>
 <div class="paragraph">
 <p>As a general rule, proprietary HTTP headers should be avoided.
 From a conceptual point of view, the business semantics and intent of an
@@ -6082,110 +6010,18 @@ Remember that HTTP header field names are not case-sensitive:</p>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="x-flow-id"></a><a href="#x-flow-id"><code>X-Flow-ID</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="x-example"></a>{X-Example}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">For more information see <a href="#233"><span class="must-keyword"><strong>MUST</strong></span> support <code>X-Flow-ID</code></a>.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">GKY7oDhpSiKY_gAAAABZ_A</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="x-tenant-id"></a><a href="#x-tenant-id"><code>X-Tenant-ID</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Identifies the tenant initiated the request
-to the multi tenant Zalando Platform. The <a href="#x-tenant-id"><code>X-Tenant-ID</code></a> must be set
-according to the Business Partner ID extracted from the OAuth token when
-a request from a Business Partner hits the Zalando Platform.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">9f8b3ca3-4be5-436c-a847-9cd55460c495</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="x-sales-channel"></a><a href="#x-sales-channel"><code>X-Sales-Channel</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sales channels are owned by retailers and represent a specific consumer segment
-being addressed with a specific product assortment that is offered via CFA
-retailer catalogs to consumers (see
-<a href="https://digital-experience.docs.zalando.net/glossary/glossary.html">fashion platform glossary (internal link)</a>).</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">52b96501-0f8d-43e7-82aa-8a96fab134d7</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="x-frontend-type"></a><a href="#x-frontend-type"><code>X-Frontend-Type</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Consumer facing applications (CFAs) provide business experience to their
-customers via different frontend application types, for instance, mobile app
-or browser. Info should be passed-through as generic aspect&#8201;&#8212;&#8201;there are
-diverse concerns, e.g. pushing mobiles with specific coupons, that make use of
-it. Current range is mobile-app, browser, facebook-app, chat-app, email.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">mobile-app</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="x-device-type"></a><a href="#x-device-type"><code>X-device-Type</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">There are also use cases for steering customer experience (incl. features and
-content) depending on device type. Via this header info should be passed-through
-as generic aspect. Current range is smartphone, tablet, desktop, other.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">tablet</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="x-device-os"></a><a href="#x-device-os"><code>X-device-OS</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">On top of device type above, we even want to differ between device platform,
-e.g. smartphone Android vs. iOS. Via this header info should be passed-through
-as generic aspect. Current range is iOS, Android, Windows, Linux, MacOS.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Android</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="x-mobile-advertising-id"></a><a href="#x-mobile-advertising-id"><code>X-Mobile-Advertising-ID</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">It is either the
-<a href="https://developer.apple.com/documentation/adsupport/asidentifiermanager">IDFA</a>
-(Apple Identifier for mobile Advertising) for iOS, or the
-<a href="https://support.google.com/googleplay/android-developer/answer/6048248">GAID</a>
-(Google mobile Advertising Identifier) for Android. It is a unique,
-customer-resettable identifier provided by mobile device’s operating system
-to facilitate personalized advertising, and usually passed by mobile apps via http header
-when calling backend services. Called services should be ready to pass this
-parameter through when calling other services. It is not sent if the customer
-disables it in the settings for respective mobile platform.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">b89fadce-1f42-46aa-9c83-b7bc49e76e1f</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">For more information see above.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">There once was a custom header</p></td>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p><strong>Exception:</strong> The only exception to this guideline are the conventional
-hop-by-hop <code>X-RateLimit-</code> headers which can be used as defined in <a href="#153"><span class="must-keyword"><strong>MUST</strong></span> use code 429 with headers for rate limits</a>.</p>
-</div>
-<div class="paragraph">
-<p>As part of the guidelines we sourced the OpenAPI definition of all proprietary headers;
-you can simply reference it when defining the API endpoint requests e.g.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="yaml"><span class="key">parameters</span>:
-- <span class="string"><span class="content">$ref: &quot;https://opensource.zalando.com/restful-api-guidelines/models/request-headers-1.0.0.yaml#/X-Flow-ID&quot;</span></span>
-- <span class="string"><span class="content">$ref: &quot;https://opensource.zalando.com/restful-api-guidelines/models/request-headers-1.0.0.yaml#/X-Tenant-ID&quot;</span></span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Response headers can be referenced in the API endpoint e.g.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="yaml"><span class="key">parameters</span>:
-- <span class="string"><span class="content">$ref: &quot;https://opensource.zalando.com/restful-api-guidelines/models/response-headers-1.0.0.yaml#/ETag&quot;</span></span>
-- <span class="string"><span class="content">$ref: &quot;https://opensource.zalando.com/restful-api-guidelines/models/response-headers-1.0.0.yaml#/Cache-Control&quot;</span></span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Hint:</strong> This guideline does not standardize proprietary headers for
-our specific gateway components (2. use case above).
-This include, for instance, non pass-through headers <code>X-Zalando-Client-ID</code>, <code>X-Zalando-Request-Host</code>,
-<code>X-Zalando-Request-URI</code> defined by Fashion Shop API (RKeep), or <code>X-Consumer</code>, <code>X-Consumer-Signature</code>,
-<code>X-Consumer-Key-ID</code> defined by Merchant API gateway.
-All these proprietary headers are whitelisted in the API Linter (Zally) checking this rule.</p>
-</div>
 </div>
 <div class="sect2">
 <h3 id="184"><a class="link" href="#184"><span class="must-keyword"><strong>MUST</strong></span> propagate proprietary headers</a></h3>
 <div class="paragraph">
-<p>All Zalando&#8217;s proprietary headers listed above are end-to-end headers
+<p>All proprietary headers listed above are end-to-end headers
 <sup class="footnote" id="_footnote_header-types">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup>
 and must be propagated to the services down the call
 chain. The header names and values must remain unchanged.</p>
@@ -6202,113 +6038,6 @@ recommendation results).</p>
 in a subsequent request. In such cases, the proprietary headers must still be
 propagated as headers with the subsequent request, despite the duplication of
 information.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="233"><a class="link" href="#233"><span class="must-keyword"><strong>MUST</strong></span> support <a href="#x-flow-id"><code>X-Flow-ID</code></a></a></h3>
-<div class="paragraph">
-<p>The <a href="#flow-id"><code>Flow-ID</code></a> is a generic parameter to be passed through service APIs and
-events and written into log files and traces. A consequent usage of the
-<a href="#flow-id"><code>Flow-ID</code></a> facilitates the tracking of call flows through our system and allows
-the correlation of service activities initiated by a specific call. This is
-extremely helpful for operational troubleshooting and log analysis. Main use
-case of <a href="#flow-id"><code>Flow-ID</code></a> is to track service calls of our SaaS fashion commerce
-platform and initiated internal processing flows (executed synchronously via
-APIs or asynchronously via published events).</p>
-</div>
-<div class="sect3">
-<h4 id="_data_definition"><a class="link" href="#_data_definition">Data Definition</a></h4>
-<div class="paragraph">
-<p>The <a href="#flow-id"><code>Flow-ID</code></a> must be passed through:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>RESTful API requests via <a href="#x-flow-id"><code>X-Flow-ID</code></a> proprietary header (see <a href="#184"><span class="must-keyword"><strong>MUST</strong></span> propagate proprietary headers</a>)</p>
-</li>
-<li>
-<p>Published events via <code>flow_id</code> event field (see <a href="#event-metadata">metadata</a>)</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The following formats are allowed:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>UUID</code> (<a href="https://tools.ietf.org/html/rfc4122">RFC-4122</a>)</p>
-</li>
-<li>
-<p><code>base64</code> (<a href="https://tools.ietf.org/html/rfc4648">RFC-4648</a>)</p>
-</li>
-<li>
-<p><code>base64url</code> (<a href="https://tools.ietf.org/html/rfc4648#section-5">RFC-4648 Section 5</a>)</p>
-</li>
-<li>
-<p>Random unique string restricted to the character set <code>[a-zA-Z0-9/+_-=]</code> maximal of 128 characters.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Note:</strong> If a legacy subsystem can only process <code>Flow-IDs</code> with a specific
-format or length, it must define this restrictions in its API specification,
-and be generous and remove invalid characters or cut the length to the
-supported limit.</p>
-</div>
-<div class="paragraph">
-<p><strong>Hint:</strong> In case distributed tracing is supported by <a href="https://github.bus.zalan.do/SRE/opentracing">OpenTracing
-(internal link)</a> you should ensure that created <em>spans</em> are tagged using
-<code>flow_id</code> — see
-<a href="https://github.bus.zalan.do/SRE/opentracing/blob/master/wg-semantic-conventions/best-practices/flowid.md">How
-to Connect Log Output with OpenTracing Using Flow-IDs (internal link)</a> or
-<a href="https://github.bus.zalan.do/SRE/opentracing/blob/master/wg-semantic-conventions/best-practices.md">Best
-practises (internal link)</a>.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_service_guidance"><a class="link" href="#_service_guidance">Service Guidance</a></h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Services <strong>must</strong> support <a href="#flow-id"><code>Flow-ID</code></a> as generic input, i.e.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>RESTful API endpoints <strong>must</strong> support <a href="#x-flow-id"><code>X-Flow-ID</code></a> header in requests</p>
-</li>
-<li>
-<p>Event listeners <strong>must</strong> support the metadata <code>flow-id</code> from events.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Note:</strong> API-Clients <strong>must</strong> provide <a href="#flow-id"><code>Flow-ID</code></a> when calling a service or
-producing events. If no <a href="#flow-id"><code>Flow-ID</code></a> is provided in a request or event, the
-service must create a new <a href="#flow-id"><code>Flow-ID</code></a>.</p>
-</div>
-</li>
-<li>
-<p>Services <strong>must</strong> propagate <a href="#flow-id"><code>Flow-ID</code></a>, i.e. use <a href="#flow-id"><code>Flow-ID</code></a> received
-with API calls or consumed events as&#8230;&#8203;</p>
-<div class="ulist">
-<ul>
-<li>
-<p>input for all API called and events published during processing</p>
-</li>
-<li>
-<p>data field written for logging and tracing</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Hint:</strong> This rule also applies to application internal interfaces and events
-not published via Nakadi (but e.g. via AWS SQS, Kinesis or service specific
-DB solutions).</p>
-</div>
 </div>
 </div>
 </div>
@@ -6347,7 +6076,7 @@ proper link relationships in your APIs as stated in rules below.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="163"><a class="link" href="#163"><span class="may-keyword"><strong>MAY</strong></span> use REST maturity level 3 - HATEOAS</a></h3>
+<h3 id="163"><a class="link" href="#163"><span class="should-keyword"><strong>SHOULD</strong></span> avoid REST maturity level 3 - HATEOAS</a></h3>
 <div class="paragraph">
 <p>We do not generally recommend to implement
 <a href="http://martinfowler.com/articles/richardsonMaturityModel.html#level3">REST
@@ -6398,14 +6127,6 @@ human facing service domain.</p>
 target resources without 'discovering' them.</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>However, we do not forbid HATEOAS; you could use it, if you checked its
-limitations and still see clear value for your usage scenario that justifies
-its additional complexity. If you use HATEOAS please share experience and
-present your findings in the
-<a href="https://confluence.zalando.net/display/GUL/API+Guild">API Guild [internal
-link</a>].</p>
 </div>
 </div>
 <div class="sect2">
@@ -6536,8 +6257,7 @@ As a result, the use of the <a href="https://tools.ietf.org/html/rfc8288#section
 This holds for APIs that (might) have high payloads and/or are used in
 high-traffic scenarios like the public Internet and telecommunication networks.
 Typical examples are APIs used by mobile web app clients with (often) less
-bandwidth connectivity. (Zalando is a 'Mobile First' company, so be mindful of
-this point.)</p>
+bandwidth connectivity.</p>
 </div>
 <div class="paragraph">
 <p>Common techniques include:</p>
@@ -6650,9 +6370,8 @@ the <code>name</code> field, and <code>(name,friends(name))</code> returns the <
 <div class="paragraph">
 <p>OpenAPI doesn&#8217;t support you in formally specifying different return object
 schemes depending on a parameter. When you define the field parameter, we
-recommend to provide the following description: <code>Endpoint supports filtering
-of return object fields as described in
-[Rule #157](<a href="https://opensource.zalando.com/restful-api-guidelines/#157" class="bare">https://opensource.zalando.com/restful-api-guidelines/#157</a>)</code></p>
+recommend to provide the following description: `Endpoint supports filtering
+of return object fields as described in<a href="#157">Rule #157</a></p>
 </div>
 <div class="paragraph">
 <p>The syntax of the query <a href="#fields"><code>fields</code></a> value is defined by the following
@@ -7425,6 +7144,9 @@ microservice</p>
 <p>As we discourage versioning by all means because of the manifold disadvantages,
 we strongly recommend to only use the first two approaches.</p>
 </div>
+<div class="paragraph">
+<p>Tip: versioning should always be the last resort and decided with peers.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="114"><a class="link" href="#114"><span class="must-keyword"><strong>MUST</strong></span> use media type versioning</a></h3>
@@ -7438,7 +7160,7 @@ management.</p>
 <div class="paragraph">
 <p>Version information and media type are provided
 together via the HTTP <code>Content-Type</code> header — e.g.
-<code>application/x.zalando.cart+json;version=2</code>. For incompatible changes, a new
+<code>application/vendor.cart+json;version=2</code>. For incompatible changes, a new
 media type version for the resource is created. To generate the new
 representation version, consumer and producer can do <a href="#244">content negotiation</a> using
 the HTTP <code>Content-Type</code> and <code>Accept</code> headers.</p>
@@ -7469,7 +7191,7 @@ the request and response content schema, not to URI or method semantics.
 <div class="ulist">
 <ul>
 <li>
-<p><code>custom-media-type</code> is a custom type name, e.g. <code>zalando.cart</code></p>
+<p><code>custom-media-type</code> is a custom type name, e.g. <code>vendor.cart</code></p>
 </li>
 <li>
 <p><code>version</code> is a number, e.g. <code>2</code></p>
@@ -7484,7 +7206,7 @@ the request and response content schema, not to URI or method semantics.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="http">Accept: application/x.zalando.cart+json;version=2</code></pre>
+<pre class="CodeRay highlight"><code data-lang="http">Accept: application/vendor.cart+json;version=2</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7494,7 +7216,7 @@ version:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="http">Content-Type: application/x.zalando.cart+json;version=2</code></pre>
+<pre class="CodeRay highlight"><code data-lang="http">Content-Type: application/vendor.cart+json;version=2</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7503,7 +7225,7 @@ version:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Use a custom media type, e.g. <code>application/x.zalando.cart+json</code></p>
+<p>Use a custom media type, e.g. <code>application/vendor.cart+json</code></p>
 </li>
 <li>
 <p>Include versions in request and response headers to increase visibility</p>
@@ -7526,8 +7248,8 @@ between versions</p>
 <div class="title">Tip</div>
 </td>
 <td class="content">
-Until an incompatible change is necessary, it is recommended to stay
-with the standard <code>application/json</code> media type and do not use media type versioning.
+You <span class="should-keyword"><strong>SHOULD</strong></span> avoid media type versioning. Until an incompatible change is necessary, it is recommended to stay
+with the standard <code>application/json</code> media type.
 </td>
 </tr>
 </table>
@@ -7745,22 +7467,6 @@ APIs. While this is optional for internal APIs, i.e. APIs marked with the
 to profit from the API management infrastructure.</p>
 </div>
 <div class="paragraph">
-<p>An API is published by copying its <strong>OpenAPI specification</strong> into the reserved
-<strong>/zalando-apis</strong> directory of the <strong>deployment artifact</strong> used to deploy the
-provisioning service. The directory must only contain <strong>self-contained YAML</strong>
-<strong>files</strong> that each describe one API (exception see <a href="#234"><span class="must-keyword"><strong>MUST</strong></span> only use durable and immutable remote references</a>). We prefer this
-deployment artifact-based method over the past (now legacy)
-<code>.well-known/schema-discovery</code> service endpoint-based publishing process, that
-we only support for backward compatibility reasons.</p>
-</div>
-<div class="paragraph">
-<p>Background: In our dynamic and complex service infrastructure, it is important
-to provide API client developers a central place with online access to the API
-specifications of all running applications. As a part of the infrastructure,
-the API publishing process is used to detect API specifications. The findings
-are published in the API Portal - the universal hub for all Zalando APIs.</p>
-</div>
-<div class="paragraph">
 <p><strong>Note:</strong> To publish an API, it is still necessary to deploy the artifact
 successful, as we focus the discovery experience on APIs supported by running
 services.</p>
@@ -7784,1222 +7490,7 @@ of the client-id retrieved from the OAuth token.</p>
 <h2 id="events"><a class="link" href="#events">18. EVENT Basics - Event Types</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Zalando’s architecture centers around decoupled microservices and in
-that context we favour asynchronous event driven approaches. The
-guidelines focus on how to design and publish events
-intended to be shared for others to consume.</p>
-</div>
-<div class="paragraph">
-<p>Events are defined using an item called an <em>Event Type</em>. The Event Type
-allows events to have their structure declared with a schema by
-producers and understood by consumers. An Event Type declares standard
-information, such as a name, an owning application (and by implication,
-an owning team), a schema defining the event&#8217;s custom data, and a
-compatibility mode declaring how the schema will be evolved. Event Types
-also allow the declaration of validation and enrichment strategies for
-events, along with supplemental information such as how events can be
-partitioned in an event stream.</p>
-</div>
-<div class="paragraph">
-<p>Event Types belong to a well known <em>Event Category</em> (such as a data
-change category), which provides extra information that is common to
-that kind of event.</p>
-</div>
-<div class="paragraph">
-<p>Event Types can be published and made available as API resources for
-teams to use, typically in an <em>Event Type Registry</em>. Each event
-published can then be validated against the overall structure of its
-event type and the schema for its custom data.</p>
-</div>
-<div class="paragraph">
-<p>The basic model described above was originally developed in the
-<a href="https://github.com/zalando/nakadi">Nakadi project</a>, which acts as a
-reference implementation (see also
-<a href="https://apis.zalando.net/apis/nakadi-event-bus-api-definition/ui">Nakadi API[internal link</a>])
-of the event type registry, and as a validating
-publish/subscribe broker for event producers and consumers.</p>
-</div>
-<div class="sect2">
-<h3 id="208"><a class="link" href="#208"><span class="must-keyword"><strong>MUST</strong></span> define events compliant with overall API guidelines</a></h3>
-<div class="paragraph">
-<p>Events must be consistent with other API data and the API Guidelines in
-general (as far as applicable).</p>
-</div>
-<div class="paragraph">
-<p>Everything expressed in the <a href="#introduction">Introduction</a> to
-these Guidelines is applicable to event data interchange between
-services. This is because our events, just like our APIs, represent a
-commitment to express what our systems do and designing high-quality,
-useful events allows us to develop new and interesting products and
-services.</p>
-</div>
-<div class="paragraph">
-<p>What distinguishes events from other kinds of data is the delivery style
-used, asynchronous publish-subscribe messaging. But there is no reason
-why they could not be made available using a REST API, for example via a
-search request or as a paginated feed, and it will be common to base
-events on the models created for the service’s REST API.</p>
-</div>
-<div class="paragraph">
-<p>The following existing guideline sections are applicable to events:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="#general-guidelines">General guidelines</a></p>
-</li>
-<li>
-<p><a href="#data-formats">REST Basics - Data formats</a></p>
-</li>
-<li>
-<p><a href="#json-guidelines">REST Basics - JSON payload</a></p>
-</li>
-<li>
-<p><a href="#hypermedia">REST Design - Hypermedia</a></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="194"><a class="link" href="#194"><span class="must-keyword"><strong>MUST</strong></span> treat events as part of the service interface</a></h3>
-<div class="paragraph">
-<p>Events are part of a service’s interface to the outside world equivalent
-in standing to a service’s REST API. Services publishing data for
-integration must treat their events as a first class design concern,
-just as they would an API. For example this means approaching events
-with the "API first" principle in mind as described in the <a href="#introduction">Introduction</a>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="195"><a class="link" href="#195"><span class="must-keyword"><strong>MUST</strong></span> make event schema available for review</a></h3>
-<div class="paragraph">
-<p>Services publishing event data for use by others must make the event
-schema as well as the event type definition available for review.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="197"><a class="link" href="#197"><span class="must-keyword"><strong>MUST</strong></span> specify and register events as event types</a></h3>
-<div class="paragraph">
-<p>In Zalando&#8217;s architecture, events are registered using a structure
-called an <em>Event Type</em>. The Event Type declares standard information as
-follows:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>A well known event category, such as a general or data change
-category.</p>
-</li>
-<li>
-<p>The name of the event type.</p>
-</li>
-<li>
-<p>The definition of the <a href="#219">event target audience</a>.</p>
-</li>
-<li>
-<p>An owning application, and by implication, an owning team.</p>
-</li>
-<li>
-<p>A schema defining the event payload.</p>
-</li>
-<li>
-<p>The compatibility mode for the type.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Event Types allow easier discovery of event information and ensure that
-information is well-structured, consistent, and can be validated.
-The core Event Type structure is shown below as an OpenAPI object
-definition:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="yaml"><span class="key">EventType</span>:
-  <span class="key">description</span>: <span class="string"><span class="delimiter">|</span><span class="content">
-    An event type defines the schema and its runtime properties. The required
-    fields are the minimum set the creator of an event type is expected to
-    supply.</span></span>
-  <span class="key">required</span>:
-    - <span class="string"><span class="content">name</span></span>
-    - <span class="string"><span class="content">category</span></span>
-    - <span class="string"><span class="content">owning_application</span></span>
-    - <span class="string"><span class="content">schema</span></span>
-  <span class="key">properties</span>:
-    <span class="key">name</span>:
-      <span class="key">description</span>: <span class="string"><span class="delimiter">|</span><span class="content">
-        Name of this EventType. The name must follow the functional naming
-        pattern `&lt;functional-name&gt;.&lt;event-name&gt;` to preserve global
-        uniqueness and readability.</span></span>
-      <span class="key">type</span>: <span class="string"><span class="content">string</span></span>
-      <span class="key">pattern</span>: <span class="string"><span class="content">'[a-z][a-z0-9-]*\.[a-z][a-z0-9-]*'</span></span>
-      <span class="key">example</span>: <span class="string"><span class="delimiter">|</span><span class="content">
-        transactions.order.order-cancelled
-        customer.personal-data.email-changed</span></span>
-    <span class="key">audience</span>:
-      <span class="key">type</span>: <span class="string"><span class="content">string</span></span>
-      <span class="key">x-extensible-enum</span>:
-        - <span class="string"><span class="content">component-internal</span></span>
-        - <span class="string"><span class="content">business-unit-internal</span></span>
-        - <span class="string"><span class="content">company-internal</span></span>
-        - <span class="string"><span class="content">external-partner</span></span>
-        - <span class="string"><span class="content">external-public</span></span>
-      <span class="key">description</span>: <span class="string"><span class="delimiter">|</span><span class="content">
-        Intended target audience of the event type, analogue to audience definition for REST APIs
-        in rule #219 -- see https://opensource.zalando.com/restful-api-guidelines/#219</span></span>
-    <span class="key">owning_application</span>:
-      <span class="key">description</span>: <span class="string"><span class="delimiter">|</span><span class="content">
-        Name of the application (eg, as would be used in infrastructure
-        application or service registry) owning this `EventType`.</span></span>
-      <span class="key">type</span>: <span class="string"><span class="content">string</span></span>
-      <span class="key">example</span>: <span class="string"><span class="content">price-service</span></span>
-    <span class="key">category</span>:
-      <span class="key">description</span>: <span class="string"><span class="content">Defines the category of this EventType.</span></span>
-      <span class="key">type</span>: <span class="string"><span class="content">string</span></span>
-      <span class="key">x-extensible-enum</span>:
-        - <span class="string"><span class="content">data</span></span>
-        - <span class="string"><span class="content">general</span></span>
-    <span class="key">compatibility_mode</span>:
-      <span class="key">description</span>: <span class="string"><span class="delimiter">|</span><span class="content">
-        The compatibility mode to evolve the schema.</span></span>
-      <span class="key">type</span>: <span class="string"><span class="content">string</span></span>
-      <span class="key">x-extensible-enum</span>:
-        - <span class="string"><span class="content">compatible</span></span>
-        - <span class="string"><span class="content">forward</span></span>
-        - <span class="string"><span class="content">none</span></span>
-      <span class="key">default</span>: <span class="string"><span class="content">forward</span></span>
-    <span class="key">schema</span>:
-      <span class="key">description</span>: <span class="string"><span class="content">The most recent payload schema for this EventType.</span></span>
-      <span class="key">type</span>: <span class="string"><span class="content">object</span></span>
-      <span class="key">properties</span>:
-        <span class="key">version</span>:
-          <span class="key">description</span>: <span class="string"><span class="content">Values are based on semantic versioning (eg &quot;1.2.1&quot;).</span></span>
-          <span class="key">type</span>: <span class="string"><span class="content">string</span></span>
-          <span class="key">default</span>: <span class="string"><span class="content">'1.0.0'</span></span>
-        <span class="key">created_at</span>:
-          <span class="key">description</span>: <span class="string"><span class="content">Creation timestamp of the schema.</span></span>
-          <span class="key">type</span>: <span class="string"><span class="content">string</span></span>
-          <span class="key">readOnly</span>: <span class="string"><span class="content">true</span></span>
-          <span class="key">format</span>: <span class="string"><span class="content">date-time</span></span>
-          <span class="key">example</span>: <span class="string"><span class="content">'1996-12-19T16:39:57-08:00'</span></span>
-        <span class="key">type</span>:
-          <span class="key">description</span>: <span class="string"><span class="delimiter">|</span><span class="content">
-             The schema language of schema definition. Currently only
-             json_schema (JSON Schema v04) syntax is defined, but in the
-             future there could be others.</span></span>
-          <span class="key">type</span>: <span class="string"><span class="content">string</span></span>
-          <span class="key">x-extensible-enum</span>:
-            - <span class="string"><span class="content">json_schema</span></span>
-        <span class="key">schema</span>:
-          <span class="key">description</span>: <span class="string"><span class="delimiter">|</span><span class="content">
-              The schema as string in the syntax defined in the field type.</span></span>
-          <span class="key">type</span>: <span class="string"><span class="content">string</span></span>
-      <span class="key">required</span>:
-        - <span class="string"><span class="content">type</span></span>
-        - <span class="string"><span class="content">schema</span></span>
-    <span class="key">ordering_key_fields</span>:
-      <span class="key">type</span>: <span class="string"><span class="content">array</span></span>
-      <span class="key">description</span>: <span class="string"><span class="delimiter">|</span><span class="content">
-        Indicates which field is used for application level ordering of events.
-        It is typically a single field, but also multiple fields for compound
-        ordering key are supported (first item is most significant).
-
-        This is an informational only event type attribute for specification of
-        application level ordering. Nakadi transportation layer is not affected,
-        where events are delivered to consumers in the order they were published.
-
-        Scope of the ordering is all events (of all partitions), unless it is
-        restricted to data instance scope in combination with
-        `ordering_instance_ids` attribute below.
-
-        This field can be modified at any moment, but event type owners are
-        expected to notify consumer in advance about the change.
-
-        *Background:* Event ordering is often created on application level using
-        ascending counters, and data providers/consumers do not need to rely on the
-        event publication order. A typical example are data instance change events
-        used to keep a slave data store replica in sync. Here you have an order
-        defined per instance using data object change counters (aka row update
-        version) and the order of event publication is not relevant, because
-        consumers for data synchronization skip older instance versions when they
-        reconstruct the data object replica state.</span></span>
-
-      <span class="key">items</span>:
-        <span class="key">type</span>: <span class="string"><span class="content">string</span></span>
-        <span class="key">description</span>: <span class="string"><span class="delimiter">|</span><span class="content">
-          Indicates a single ordering field. This is a JsonPointer, which is applied
-          onto the whole event object, including the contained metadata and data (in
-          case of a data change event) objects. It must point to a field of type
-          string or number/integer (as for those the ordering is obvious).
-
-          Indicates a single ordering field. It is a simple path (dot separated) to
-          the JSON leaf element of the whole event object, including the contained metadata and data (in
-          case of a data change event) objects. It must point to a field of type
-          string or number/integer (as for those the ordering is obvious), and must be
-          present in the schema.</span></span>
-        <span class="key">example</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">data.order_change_counter</span><span class="delimiter">&quot;</span></span>
-    <span class="key">ordering_instance_ids</span>:
-      <span class="key">type</span>: <span class="string"><span class="content">array</span></span>
-      <span class="key">description</span>: <span class="string"><span class="delimiter">|</span><span class="content">
-        Indicates which field represents the data instance identifier and scope in
-        which ordering_key_fields provides a strict order. It is typically a single
-        field, but multiple fields for compound identifier keys are also supported.
-
-        This is an informational only event type attribute without specific Nakadi
-        semantics for specification of application level ordering. It only can be
-        used in combination with `ordering_key_fields`.
-
-        This field can be modified at any moment, but event type owners are expected
-        to notify consumer in advance about the change.</span></span>
-      <span class="key">items</span>:
-        <span class="key">type</span>: <span class="string"><span class="content">string</span></span>
-        <span class="key">description</span>: <span class="string"><span class="delimiter">|</span><span class="content">
-          Indicates a single key field. It is a simple path (dot separated) to the JSON
-          leaf element of the whole event object, including the contained metadata and
-          data (in case of a data change event) objects, and it must be present in the
-          schema.</span></span>
-       <span class="key">example</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">data.order_number</span><span class="delimiter">&quot;</span></span>
-    <span class="key">created_at</span>:
-      <span class="key">description</span>: <span class="string"><span class="content">When this event type was created.</span></span>
-      <span class="key">type</span>: <span class="string"><span class="content">string</span></span>
-      <span class="key">pattern</span>: <span class="string"><span class="content">date-time</span></span>
-    <span class="key">updated_at</span>:
-      <span class="key">description</span>: <span class="string"><span class="content">When this event type was last updated.</span></span>
-      <span class="key">type</span>: <span class="string"><span class="content">string</span></span>
-      <span class="key">pattern</span>: <span class="string"><span class="content">date-time</span></span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>APIs such as registries supporting event types, may extend the model,
-including the set of supported categories and schema formats. For
-example the Nakadi API&#8217;s event category registration also allows the
-declaration of validation and enrichment strategies for events, along
-with supplemental information, such as how events are partitioned in the
-stream (see <a href="#204"><span class="should-keyword"><strong>SHOULD</strong></span> use the hash partition strategy for data change events</a>).</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="213"><a class="link" href="#213"><span class="must-keyword"><strong>MUST</strong></span> follow naming convention for event type names</a></h3>
-<div class="paragraph">
-<p>Event type names must (or should, see <a href="#223"><span class="must-keyword"><strong>MUST</strong></span>/<span class="should-keyword"><strong>SHOULD</strong></span> use functional naming schema</a> for details and definition)
-conform to the functional naming depending on the <a href="#219">audience</a> as follows:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="bnf">&lt;event-type-name&gt;       ::= &lt;functional-event-name&gt; | &lt;application-event-name&gt;
-
-&lt;functional-event-name&gt; ::= &lt;functional-name&gt;.&lt;event-name&gt;[.&lt;version&gt;]
-
-&lt;event-name&gt;            ::= [a-z][a-z0-9-]* -- free event name (functional name)
-
-&lt;version&gt;               ::= V[0-9.]* -- major version of non compatible schemas</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Hint:</strong> The following convention (e.g. used by legacy STUPS infrastructure) is deprecated
-and <strong>only</strong> allowed for <a href="#223">internal</a> event type names:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="bnf">&lt;application-event-name&gt; ::= [&lt;organization-id&gt;.]&lt;application-id&gt;.&lt;event-name&gt;
-&lt;organization-id&gt;  ::= [a-z][a-z0-9-]* -- organization identifier, e.g. team identifier
-&lt;application-id&gt;   ::= [a-z][a-z0-9-]* -- application identifier</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Note:</strong> consistent naming should be used whenever the same entity is exposed
-by a data change event and a RESTful API.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="207"><a class="link" href="#207"><span class="must-keyword"><strong>MUST</strong></span> indicate ownership of event types</a></h3>
-<div class="paragraph">
-<p>Event definitions must have clear ownership - this can be indicated via
-the <code>owning_application</code> field of the EventType.</p>
-</div>
-<div class="paragraph">
-<p>Typically there is one producer application, which owns the EventType
-and is responsible for its definition, akin to how RESTful API
-definitions are managed. However, the owner may also be a particular
-service from a set of multiple services that are producing the same kind
-of event.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="245"><a class="link" href="#245"><span class="must-keyword"><strong>MUST</strong></span> carefully define the compatibility mode</a></h3>
-<div class="paragraph">
-<p>Event type owners must pay attention to the choice of compatibility
-mode. The mode provides a means to evolve the schema. The range of
-modes are designed to be flexible enough so that producers can evolve
-schemas while not inadvertently breaking existing consumers:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>none</code>: Any schema modification is accepted, even if it might break
-existing producers or consumers. When validating events, undefined
-properties are accepted unless declared in the schema.</p>
-</li>
-<li>
-<p><code>forward</code>: A schema <code>S1</code> is forward compatible if the previously
-registered schema, <code>S0</code> can read events defined by <code>S1</code> - that is,
-consumers can read events tagged with the latest schema version using
-the previous version as long as consumers follow the robustness
-principle described in the guideline&#8217;s <a href="#api-design-principles">API design principles</a>.</p>
-</li>
-<li>
-<p><code>compatible</code>: This means changes are fully compatible. A new schema,
-<code>S1</code>, is fully compatible when every event published since the first
-schema version will validate against the latest schema. In compatible
-mode, only the addition of new optional properties and definitions to an
-existing schema is allowed. Other changes are forbidden.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="196"><a class="link" href="#196"><span class="must-keyword"><strong>MUST</strong></span> ensure event schema conforms to OpenAPI schema object</a></h3>
-<div class="paragraph">
-<p>To align the event schema specifications to API specifications, we use
-the Schema Object as defined by the OpenAPI Specifications to define event
-schemas. This is particularly useful for events that represent data changes
-about resources also used in other APIs.</p>
-</div>
-<div class="paragraph">
-<p>The <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#schemaObject">OpenAPI Schema Object</a>
-is an <strong>extended subset</strong> of
-<a href="http://json-schema.org/">JSON Schema Draft 4</a>. For convenience,
-we highlight some important differences below. Please refer to the
-<a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#schemaObject">OpenAPI Schema Object specification</a>
-for details.</p>
-</div>
-<div class="paragraph">
-<p>As the OpenAPI Schema Object specification <em>removes</em> some JSON Schema
-keywords, the following properties <strong>must not</strong> be used in event schemas:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>additionalItems</code></p>
-</li>
-<li>
-<p><code>contains</code></p>
-</li>
-<li>
-<p><code>patternProperties</code></p>
-</li>
-<li>
-<p><code>dependencies</code></p>
-</li>
-<li>
-<p><code>propertyNames</code></p>
-</li>
-<li>
-<p><code>const</code></p>
-</li>
-<li>
-<p><code>not</code></p>
-</li>
-<li>
-<p><code>oneOf</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>On the other side Schema Object <em>redefines</em> some JSON Schema keywords:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>additionalProperties</code>: For event types that declare compatibility
-guarantees, there are recommended constraints around the use of this
-field. See the guideline <a href="#210"><span class="should-keyword"><strong>SHOULD</strong></span> avoid <code>additionalProperties</code> in event type schemas</a> for details.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Finally, the Schema Object <em>extends</em> JSON Schema with some keywords:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>readOnly</code>: events are logically immutable, so <code>readOnly</code> can be
-considered redundant, but harmless.</p>
-</li>
-<li>
-<p><code>discriminator</code>: to support polymorphism, as an alternative to <code>oneOf</code>.</p>
-</li>
-<li>
-<p><code>^x-</code>: patterned objects in the form of
-<a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#vendorExtensions">vendor
-extensions</a> can be used in event type schema, but it might be the case
-that general purpose validators do not understand them to enforce a
-validation check, and fall back to must-ignore processing. A future
-version of the guidelines may define well known vendor extensions for
-events.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="210"><a class="link" href="#210"><span class="should-keyword"><strong>SHOULD</strong></span> avoid <code>additionalProperties</code> in event type schemas</a></h3>
-<div class="paragraph">
-<p>Event type schema should avoid using <code>additionalProperties</code>
-declarations, in order to support schema evolution.</p>
-</div>
-<div class="paragraph">
-<p>Events are often intermediated by publish/subscribe systems and are
-commonly captured in logs or long term storage to be read later. In
-particular, the schemas used by publishers and consumers can<br>
-drift over time. As a result, compatibility and extensibility issues
-that happen less frequently with client-server style APIs become
-important and regular considerations for event design. The guidelines
-recommend the following to enable event schema evolution:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Publishers who intend to provide compatibility and allow their schemas
-to evolve safely over time <strong>must not</strong> declare an <code>additionalProperties</code>
-field with a value of <code>true</code> (i.e., a wildcard extension point). Instead
-they must define new optional fields and update their schemas in advance
-of publishing those fields.</p>
-</li>
-<li>
-<p>Consumers <strong>must</strong> ignore fields they cannot process and not raise
-errors. This can happen if they are processing events with an older copy
-of the event schema than the one containing the new definitions
-specified by the publishers.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The above constraint does not mean fields can never be added in future
-revisions of an event type schema - additive compatible changes are
-allowed, only that the new schema for an event type must define the
-field first before it is published within an event. By the same turn the
-consumer must ignore fields it does not know about from its copy of the
-schema, just as they would as an API client - that is, they cannot treat
-the absence of an <code>additionalProperties</code> field as though the event type
-schema was closed for extension.</p>
-</div>
-<div class="paragraph">
-<p>Requiring event publishers to define their fields ahead of publishing
-avoids the problem of <em>field redefinition</em>. This is when a publisher
-defines a field to be of a different type that was already being
-emitted, or, is changing the type of an undefined field. Both of these
-are prevented by not using <code>additionalProperties</code>.</p>
-</div>
-<div class="paragraph">
-<p>See also rule <a href="#111"><span class="must-keyword"><strong>MUST</strong></span> treat OpenAPI specification as open for extension by default</a> in the <a href="#compatibility">REST Design - Compatibility</a> section for further guidelines
-on the use of <code>additionalProperties</code>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="246"><a class="link" href="#246"><span class="must-keyword"><strong>MUST</strong></span> use semantic versioning of event type schemas</a></h3>
-<div class="paragraph">
-<p>Event schemas must be versioned&#8201;&#8212;&#8201;analog to <a href="#116"><span class="must-keyword"><strong>MUST</strong></span> use semantic versioning</a> for REST API definitions.
-The compatibility mode interact with revision numbers in the schema
-<code>version</code> field, which follows semantic versioning (MAJOR.MINOR.PATCH):</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Changing an event type with compatibility mode <code>compatible</code> or <code>forward</code>
-can lead to a PATCH or MINOR version revision.
-MAJOR breaking changes are not allowed.</p>
-</li>
-<li>
-<p>Changing an event type with compatibility mode <code>none</code> can lead to
-PATCH, MINOR or MAJOR level changes.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The following examples illustrate this relations:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Changes to the event type&#8217;s <code>title</code> or <code>description</code> are considered
-PATCH level.</p>
-</li>
-<li>
-<p>Adding new optional fields to an event type&#8217;s schema is considered a
-MINOR level change.</p>
-</li>
-<li>
-<p>All other changes are considered MAJOR level, such as renaming or
-removing fields, or adding new required fields.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="event-categories"><a class="link" href="#event-categories">19. EVENT Basics - Event Catagories</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>An <em>event category</em> describes a generic class of event types. The
-guidelines define two such categories:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>General Event: a general purpose category.</p>
-</li>
-<li>
-<p>Data Change Event: a category to inform about data entity changes
-and used e.g. for data replication based data integration.</p>
-</li>
-</ul>
-</div>
-<div class="sect2">
-<h3 id="198"><a class="link" href="#198"><span class="must-keyword"><strong>MUST</strong></span> ensure that events conform to an event category</a></h3>
-<div class="paragraph">
-<p>A category describes a predefined structure (e.g. including event
-metadata as part of the event payload) that event publishers must
-conform to along with standard information specific for the event category
-(e.g. the operation for data change events).</p>
-</div>
-<div class="sect3">
-<h4 id="_the_general_event_category"><a class="link" href="#_the_general_event_category">The general event category</a></h4>
-<div class="paragraph">
-<p>The structure of the <em>General Event Category</em> is shown below as an OpenAPI
-Schema Object definition:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="yaml"><span class="key">GeneralEvent</span>:
-  <span class="key">description</span>: <span class="string"><span class="delimiter">|</span><span class="content">
-    A general kind of event. Event kinds based on this event define their
-    custom schema payload as the top level of the document, with the
-    &quot;metadata&quot; field being required and reserved for standard metadata. An
-    instance of an event based on the event type thus conforms to both the
-    EventMetadata definition and the custom schema definition.
-    Hint: In earlier versions this category was called the Business Category.</span></span>
-  <span class="key">required</span>:
-    - <span class="string"><span class="content">metadata</span></span>
-  <span class="key">properties</span>:
-    <span class="key">metadata</span>:
-        <span class="error">$ref</span>: <span class="error">'#/definitions/EventMetadata'</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Event types based on the General Event Category define their custom
-schema payload at the top-level of the document, with the
-<a href="#event-metadata">metadata</a> field being reserved for standard
-information (the contents of <a href="#event-metadata">metadata</a> are
-described further down in this section).</p>
-</div>
-<div class="paragraph">
-<p><strong>Note:</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>The General Event was called a <em>Business Event</em> in earlier versions of
-the guidelines. Implementation experience has shown that the
-category&#8217;s structure gets used for other kinds of events, hence the name
-has been generalized to reflect how teams are using it.</p>
-</li>
-<li>
-<p>The General Event is still useful and recommended for the purpose of
-defining events that drive a business process.</p>
-</li>
-<li>
-<p>The Nakadi broker still refers to the General Category as the Business
-Category and uses the keyword <code>business</code> for event type registration.
-Other than that, the JSON structures are identical.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>See <a href="#201"><span class="must-keyword"><strong>MUST</strong></span> use general events to signal steps in business processes</a> for more guidance on how to use the category.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_the_data_change_event_category"><a class="link" href="#_the_data_change_event_category">The data change event category</a></h4>
-<div class="paragraph">
-<p>The <em>Data Change Event Category</em> structure is shown below as an OpenAPI
-Schema Object:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="yaml"><span class="key">DataChangeEvent</span>:
-  <span class="key">description</span>: <span class="string"><span class="delimiter">|</span><span class="content">
-    Represents a change to an entity. The required fields are those
-    expected to be sent by the producer, other fields may be added
-    by intermediaries such as a publish/subscribe broker. An instance
-    of an event based on the event type conforms to both the
-    DataChangeEvent's definition and the custom schema definition.</span></span>
-  <span class="key">required</span>:
-    - <span class="string"><span class="content">metadata</span></span>
-    - <span class="string"><span class="content">data_op</span></span>
-    - <span class="string"><span class="content">data_type</span></span>
-    - <span class="string"><span class="content">data</span></span>
-  <span class="key">properties</span>:
-    <span class="key">metadata</span>:
-      <span class="key">description</span>: <span class="string"><span class="content">The metadata for this event.</span></span>
-      <span class="error">$ref</span>: <span class="error">'#/definitions/EventMetadata'</span>
-    <span class="key">data</span>:
-      <span class="key">description</span>: <span class="string"><span class="delimiter">|</span><span class="content">
-        Contains custom payload for the event type. The payload must conform
-        to a schema associated with the event type declared in the metadata
-        object's `event_type` field.</span></span>
-      <span class="key">type</span>: <span class="string"><span class="content">object</span></span>
-    <span class="key">data_type</span>:
-      <span class="key">description</span>: <span class="string"><span class="content">name of the (business) data entity that has been mutated</span></span>
-      <span class="key">type</span>: <span class="string"><span class="content">string</span></span>
-      <span class="key">example</span>: <span class="string"><span class="content">'sales_order.order'</span></span>
-    <span class="key">data_op</span>:
-      <span class="key">type</span>: <span class="string"><span class="content">string</span></span>
-      <span class="key">enum</span>: <span class="string"><span class="content">['C', 'U', 'D', 'S']</span></span>
-      <span class="key">description</span>: <span class="string"><span class="delimiter">|</span><span class="content">
-        The type of operation executed on the entity:
-
-        - C: Creation of an entity
-        - U: An update to an entity.
-        - D: Deletion of an entity.
-        - S: A snapshot of an entity at a point in time.</span></span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The Data Change Event Category is structurally different to the General Event Category
-by defining a field called <code>data</code> as container for the custom payload, as well as
-specific information related to data changes in the <code>data_op</code>.</p>
-</div>
-<div class="paragraph">
-<p>The following guidelines specifically apply to Data Change Events:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="#202"><span class="must-keyword"><strong>MUST</strong></span> use data change events to signal mutations</a></p>
-</li>
-<li>
-<p><a href="#242"><span class="must-keyword"><strong>MUST</strong></span> provide explicit event ordering for data change events</a></p>
-</li>
-<li>
-<p><a href="#205"><span class="should-keyword"><strong>SHOULD</strong></span> ensure that data change events match the APIs resources</a></p>
-</li>
-<li>
-<p><a href="#204"><span class="should-keyword"><strong>SHOULD</strong></span> use the hash partition strategy for data change events</a></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="event-metadata"><a class="link" href="#event-metadata">Event metadata</a></h4>
-
-</div>
-</div>
-<div class="sect2">
-<h3 id="247"><a class="link" href="#247"><span class="must-keyword"><strong>MUST</strong></span> provide mandatory event metadata</a></h3>
-<div class="paragraph">
-<p>The General and Data Change event categories share a common structure for <em>metadata</em>
-representing generic event information. Parts of the metadata is provided by the
-Nakadi event messaging platform, but event identifier (eid) and event creation
-timestamp (occured_at) have to be provided by the event producers.
-The metadata structure is defined below as an OpenAPI Schema Object:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="yaml"><span class="key">EventMetadata</span>:
-  <span class="key">type</span>: <span class="string"><span class="content">object</span></span>
-  <span class="key">description</span>: <span class="string"><span class="delimiter">|</span><span class="content">
-    Carries metadata for an Event along with common fields. The required
-    fields are those expected to be sent by the producer, other fields may be
-    added by intermediaries such as publish/subscribe broker.</span></span>
-  <span class="key">required</span>:
-    - <span class="string"><span class="content">eid</span></span>
-    - <span class="string"><span class="content">occurred_at</span></span>
-  <span class="key">properties</span>:
-    <span class="key">eid</span>:
-      <span class="key">description</span>: <span class="string"><span class="content">Identifier of this event.</span></span>
-      <span class="key">type</span>: <span class="string"><span class="content">string</span></span>
-      <span class="key">format</span>: <span class="string"><span class="content">uuid</span></span>
-      <span class="key">example</span>: <span class="string"><span class="content">'105a76d8-db49-4144-ace7-e683e8f4ba46'</span></span>
-    <span class="key">event_type</span>:
-      <span class="key">description</span>: <span class="string"><span class="content">The name of the EventType of this Event.</span></span>
-      <span class="key">type</span>: <span class="string"><span class="content">string</span></span>
-      <span class="key">example</span>: <span class="string"><span class="content">'example.important-business-event'</span></span>
-    <span class="key">occurred_at</span>:
-      <span class="key">description</span>: <span class="string"><span class="delimiter">|</span><span class="content">
-         Technical timestamp of when the event object was created during processing
-         of the business event by the producer application. Note, it may differ from
-         the timestamp when the related real-world business event happened (e.g. when
-         the packet was handed over to the customer), which should be passed separately
-         via an event type specific attribute.
-         Depending on the producer implementation, the timestamp is typically some
-         milliseconds earlier than when the event is published and received by the
-         API event post endpoint server -- see below.</span></span>
-      <span class="key">type</span>: <span class="string"><span class="content">string</span></span>
-      <span class="key">format</span>: <span class="string"><span class="content">date-time</span></span>
-      <span class="key">example</span>: <span class="string"><span class="content">'1996-12-19T16:39:57-08:00'</span></span>
-    <span class="key">received_at</span>:
-      <span class="key">description</span>: <span class="string"><span class="delimiter">|</span><span class="content">
-        Timestamp of when the event was received via the API event post endpoints.
-        It is automatically enriched, and events will be rejected if set by the
-        event producer.</span></span>
-      <span class="key">type</span>: <span class="string"><span class="content">string</span></span>
-      <span class="key">readOnly</span>: <span class="string"><span class="content">true</span></span>
-      <span class="key">format</span>: <span class="string"><span class="content">date-time</span></span>
-      <span class="key">example</span>: <span class="string"><span class="content">'1996-12-19T16:39:57-08:00'</span></span>
-    <span class="key">version</span>:
-      <span class="key">description</span>: <span class="string"><span class="delimiter">|</span><span class="content">
-        Version of the schema used for validating this event. This may be
-        enriched upon reception by intermediaries. This string uses semantic
-        versioning.</span></span>
-      <span class="key">type</span>: <span class="string"><span class="content">string</span></span>
-      <span class="key">readOnly</span>: <span class="string"><span class="content">true</span></span>
-    <span class="key">parent_eids</span>:
-      <span class="key">description</span>: <span class="string"><span class="delimiter">|</span><span class="content">
-        Event identifiers of the Event that caused the generation of
-        this Event. Set by the producer.</span></span>
-      <span class="key">type</span>: <span class="string"><span class="content">array</span></span>
-      <span class="key">items</span>:
-        <span class="key">type</span>: <span class="string"><span class="content">string</span></span>
-        <span class="key">format</span>: <span class="string"><span class="content">uuid</span></span>
-      <span class="key">example</span>: <span class="string"><span class="content">'105a76d8-db49-4144-ace7-e683e8f4ba46'</span></span>
-    <span class="key">flow_id</span>:
-      <span class="key">description</span>: <span class="string"><span class="delimiter">|</span><span class="content">
-        A flow-id for this event (corresponds to the X-Flow-Id HTTP header).</span></span>
-      <span class="key">type</span>: <span class="string"><span class="content">string</span></span>
-      <span class="key">example</span>: <span class="string"><span class="content">'JAh6xH4OQhCJ9PutIV_RYw'</span></span>
-    <span class="key">partition</span>:
-      <span class="key">description</span>: <span class="string"><span class="delimiter">|</span><span class="content">
-        Indicates the partition assigned to this Event. Used for systems
-        where an event type's events can be sub-divided into partitions.</span></span>
-      <span class="key">type</span>: <span class="string"><span class="content">string</span></span>
-      <span class="key">example</span>: <span class="string"><span class="content">'0'</span></span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Please note that intermediaries acting between the producer of an event
-and its ultimate consumers, may perform operations like validation of
-events and enrichment of an event&#8217;s <a href="#event-metadata">metadata</a>. For
-example brokers such as Nakadi, can validate and enrich events with
-arbitrary additional fields that are not specified here and may set default
-or other values, if some of the specified fields are not supplied. How
-such systems work is outside the scope of these guidelines but producers
-and consumers working with such systems should look into their documentation
-for additional information.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="211"><a class="link" href="#211"><span class="must-keyword"><strong>MUST</strong></span> use unique event identifiers</a></h3>
-<div class="paragraph">
-<p>The <code>eid</code> (event identifier) value of an event must be unique.</p>
-</div>
-<div class="paragraph">
-<p>The <code>eid</code> property is part of the standard <a href="#event-metadata">metadata</a>
-for an event and gives the event an identifier. Producing clients must
-generate this value when sending an event and it must be guaranteed to
-be unique from the perspective of the owning application. In particular
-events within a given event type&#8217;s stream must have unique identifiers.
-This allows consumers to process the <code>eid</code> to assert the event is unique
-and use it as an idempotency check.</p>
-</div>
-<div class="paragraph">
-<p>Note that uniqueness checking of the <code>eid</code> might be not enforced by
-systems consuming events and it is the responsibility of the producer to
-ensure event identifiers do in fact distinctly identify events. A
-straightforward way to create a unique identifier for an event is to
-generate a UUID value.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="201"><a class="link" href="#201"><span class="must-keyword"><strong>MUST</strong></span> use general events to signal steps in business processes</a></h3>
-<div class="paragraph">
-<p>When publishing events that represent steps in a business process, event
-types <strong>must</strong> be based on the General Event category.
-All your events of a single business process will conform to the
-following rules:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Business events must contain a specific identifier field (a business
-process id or "bp-id") similar to flow-id to allow for efficient
-aggregation of all events in a business process execution.</p>
-</li>
-<li>
-<p>Business events must contain a means to correctly order events in a
-business process execution. In distributed settings where monotonically
-increasing values (such as a high precision timestamp that is assured to
-move forwards) cannot be obtained, the <code>parent_eids</code> data structure
-allows causal relationships to be declared between events.</p>
-</li>
-<li>
-<p>Business events should only contain information that is new to the
-business process execution at the specific step/arrival point.</p>
-</li>
-<li>
-<p>Each business process sequence should be started by a business event
-containing all relevant context information.</p>
-</li>
-<li>
-<p>Business events must be published reliably by the service.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>At the moment we cannot state whether it&#8217;s best practice to publish all
-the events for a business process using a single event type and
-represent the specific steps with a state field, or whether to use
-multiple event types to represent each step. For now we suggest
-assessing each option and sticking to one for a given business process.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="203"><a class="link" href="#203"><span class="should-keyword"><strong>SHOULD</strong></span> provide explicit event ordering for general events</a></h3>
-<div class="paragraph">
-<p>Event processing consumer applications need the order information to
-reconstruct the business event stream, for instance, in order to replay
-events in error situations, or to execute analytical use cases
-outside the context of the original event stream consumption.
-All general events (fka business events) <strong>should</strong> be provided with the explicit
-information about the business ordering of the events. To accomplish this
-event ordering the event type definition</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>must</strong> specify a the <code>ordering_key_fields</code> property to indicate which
-field(s) contain the ordering key, and</p>
-</li>
-<li>
-<p><strong>should</strong> specify the <code>ordering_instance_ids</code> property to define which
-field(s) represents the business entity instance identifier.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Note:</strong> The <code>ordering_instance_ids</code> restrict the scope in which the
-<code>ordering_key_fields</code> provide the strict order. If undefined, the ordering is
-assumed to be provided in scope of all events.</p>
-</div>
-<div class="paragraph">
-<p>The business ordering information can be provided – among other ways – by maintaining&#8230;&#8203;</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>a strictly monotonically increasing version of entity instances (e.g. created as
-row update counter by a database), or</p>
-</li>
-<li>
-<p>a strictly monotonically increasing sequence counter (maintained per partition
-or event type).</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Hint:</strong> timestamps are often a bad choice, since in distributed systems events
-may occur at the same time, or clocks are not exactly synchronized, or
-jump forward and backward to compensate drifts or leap-seconds. If you use anyway
-timestamps to indicate event ordering, you <em>must</em> carefully ensure that the designated
-event order is not messed up by these effects and use UTC time zone format.</p>
-</div>
-<div class="paragraph">
-<p><strong>Note:</strong> The <code>received_at</code> and <code>partition_offset</code> metadata set by Nakadi typically is
-different from the business event ordering, since (1) Nakadi is a distributed concurrent
-system without atomic, ordered event creation and (2) the application&#8217;s implementation
-of event publishing may not exactly reflect the business order. The business ordering
-information is application knowledge, and implemented in the scope of event
-partitions or specific entities, but may also comprise all events, if scaling
-requirements are low.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="202"><a class="link" href="#202"><span class="must-keyword"><strong>MUST</strong></span> use data change events to signal mutations</a></h3>
-<div class="paragraph">
-<p>You <strong>must</strong> use data change events to signal changes of stored entity instances
-and facilitate e.g. change data capture (CDC). Event sourced change data capture
-is crucial for our data integration architecture as it supports the logical
-replication (and reconstruction) of the application datastores
-to the data analytics and AI platform as transactional source datasets.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Change events must be provided when publishing events that represent created,
-updated, or deleted data.</p>
-</li>
-<li>
-<p>Change events must provide the complete entity data including the identifier of
-the changed instance to allow aggregation of all related events for the entity.</p>
-</li>
-<li>
-<p>Change events <a href="#242"><span class="must-keyword"><strong>MUST</strong></span> provide explicit event ordering for data change events</a>.</p>
-</li>
-<li>
-<p>Change events must be published reliably by the service.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="242"><a class="link" href="#242"><span class="must-keyword"><strong>MUST</strong></span> provide explicit event ordering for data change events</a></h3>
-<div class="paragraph">
-<p>While the order information is recommended for business events, it <strong>must</strong> be
-provided for data change events. The ordering information defines the (create,
-update, delete) change order of the data entity instances managed via the
-application&#8217;s transactional datastore. It is needed for change data capture
-to keep transactional dataset replicas in sync as source for data analytics.</p>
-</div>
-<div class="paragraph">
-<p>For details about how to provide the data change ordering information,
-please check <a href="#203"><span class="should-keyword"><strong>SHOULD</strong></span> provide explicit event ordering for general events</a>.</p>
-</div>
-<div class="paragraph">
-<p><strong>Exception</strong>: In situations where the transactional data is 'append only',
-i.e. entity instances are only created, but never updated or deleted, the
-ordering information may not be provided.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="204"><a class="link" href="#204"><span class="should-keyword"><strong>SHOULD</strong></span> use the hash partition strategy for data change events</a></h3>
-<div class="paragraph">
-<p>The <code>hash</code> partition strategy allows a producer to define which fields
-in an event are used as input to compute a logical partition the event
-should be added to. Partitions are useful as they allow supporting
-systems to scale their throughput while provide local ordering for event
-entities.</p>
-</div>
-<div class="paragraph">
-<p>The <code>hash</code> option is particularly useful for data changes as it allows
-all related events for an entity to be consistently assigned to a
-partition, providing a relative ordered stream of events for that
-entity. This is because while each partition has a total ordering,
-ordering across partitions is not assured by a supporting system, thus
-it is possible for events sent across partitions to appear in a
-different order to consumers that the order they arrived at the server.</p>
-</div>
-<div class="paragraph">
-<p>When using the <code>hash</code> strategy the partition key in almost all cases
-should represent the entity being changed and not a per event or change
-identifier such as the <code>eid</code> field or a timestamp. This ensures data
-changes arrive at the same partition for a given entity and can be
-consumed effectively by clients.</p>
-</div>
-<div class="paragraph">
-<p>There may be exceptional cases where data change events could have their
-partition strategy set to be the producer defined or random options, but
-generally <code>hash</code> is the right option - that is while the guidelines here
-are a "should", they can be read as "must, unless you have a very good
-reason".</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="events-design"><a class="link" href="#events-design">20. EVENT Design</a></h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="200"><a class="link" href="#200"><span class="must-keyword"><strong>MUST</strong></span> ensure that events do not provide sensitive data</a></h3>
-<div class="paragraph">
-<p>Similar to API permission scopes, there will be event type permissions
-passed via an OAuth token supported in near future. In the meantime,
-teams are asked to note the following:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Sensitive data, such as (e-mail addresses, phone numbers, etc) are
-subject to strict access and data protection controls.</p>
-</li>
-<li>
-<p>Event type owners <strong>must not</strong> publish sensitive information unless it&#8217;s
-mandatory or necessary to do so. For example, events sometimes need to
-provide personal data, such as delivery addresses in shipment orders (as
-do other APIs), and this is fine.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="214"><a class="link" href="#214"><span class="must-keyword"><strong>MUST</strong></span> prepare event consumers for duplicate events</a></h3>
-<div class="paragraph">
-<p>Event consumers must be able to process duplicate events.</p>
-</div>
-<div class="paragraph">
-<p>Most message brokers and data streaming systems offer "at-least-once"
-delivery. That is, one particular event is delivered to the consumers
-one or more times. Other circumstances can also cause duplicate events.</p>
-</div>
-<div class="paragraph">
-<p>For example, these situations occur if the publisher sends an event and
-doesn&#8217;t receive the acknowledgment (e.g. due to a network issue). In
-this case, the publisher will try to send the same event again. This
-leads to two identical events in the event bus which have to be
-processed by the consumers. Similar conditions can appear on consumer
-side: an event has been processed successfully, but the consumer fails
-to confirm the processing.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="212"><a class="link" href="#212"><span class="should-keyword"><strong>SHOULD</strong></span> design for idempotent out-of-order processing</a></h3>
-<div class="paragraph">
-<p>Events that are designed for <a href="#149">idempotent</a> out-of-order
-processing allow for extremely resilient systems: If processing an event
-fails, consumers and producers can skip/delay/retry it without stopping
-the world or corrupting the processing result.</p>
-</div>
-<div class="paragraph">
-<p>To enable this freedom of processing, you must explicitly design for
-idempotent out-of-order processing: Either your events must contain
-enough information to infer their original order during consumption or
-your domain must be designed in a way that order becomes irrelevant.</p>
-</div>
-<div class="paragraph">
-<p>As common example similar to data change events, idempotent out-of-order
-processing can be supported by sending the following information:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>the process/resource/entity identifier,</p>
-</li>
-<li>
-<p>a <a href="#203">monotonically increasing ordering key</a> and</p>
-</li>
-<li>
-<p>the process/resource state after the change.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>A receiver that is interested in the current state can then ignore
-events that are older than the last processed event of each resource. A
-receiver interested in the history of a resource can use the ordering
-key to recreate a (partially) ordered sequence of events.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="199"><a class="link" href="#199"><span class="must-keyword"><strong>MUST</strong></span> ensure that events define useful business resources</a></h3>
-<div class="paragraph">
-<p>Events are intended to be used by other services including business
-process/data analytics and monitoring. They should be based around the
-resources and business processes you have defined for your service
-domain and adhere to its natural lifecycle (see also <a href="#139"><span class="should-keyword"><strong>SHOULD</strong></span> model complete business processes</a> and <a href="#140"><span class="should-keyword"><strong>SHOULD</strong></span> define <em>useful</em> resources</a>).</p>
-</div>
-<div class="paragraph">
-<p>As there is a cost in creating an explosion of event types and topics,
-prefer to define event types that are abstract/generic enough to be
-valuable for multiple use cases, and avoid publishing event types
-without a clear need.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="205"><a class="link" href="#205"><span class="should-keyword"><strong>SHOULD</strong></span> ensure that data change events match the APIs resources</a></h3>
-<div class="paragraph">
-<p>A data change event&#8217;s representation of an entity should correspond to
-the REST API representation.</p>
-</div>
-<div class="paragraph">
-<p>There&#8217;s value in having the fewest number of published structures for a
-service. Consumers of the service will be working with fewer
-representations, and the service owners will have less API surface to
-maintain. In particular, you should only publish events that are
-interesting in the domain and abstract away from implementation or local
-details - there&#8217;s no need to reflect every change that happens within
-your system.</p>
-</div>
-<div class="paragraph">
-<p>There are cases where it could make sense to define data change events
-that don&#8217;t directly correspond to your API resource representations.
-Some examples are -</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Where the API resource representations are very different from the
-datastore representation, but the physical data are easier to reliably
-process for data integration.</p>
-</li>
-<li>
-<p>Publishing aggregated data. For example a data change to an individual
-entity might cause an event to be published that contains a coarser
-representation than that defined for an API</p>
-</li>
-<li>
-<p>Events that are the result of a computation, such as a matching
-algorithm, or the generation of enriched data, and which might not be
-stored as entity by the service.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="209"><a class="link" href="#209"><span class="must-keyword"><strong>MUST</strong></span> maintain backwards compatibility for events</a></h3>
-<div class="paragraph">
-<p>Changes to events must be based around making additive and backward
-compatible changes. This follows the guideline, "Must: Don’t Break
-Backward Compatibility" from the <a href="#compatibility">REST Design - Compatibility</a> guidelines.</p>
-</div>
-<div class="paragraph">
-<p>In the context of events, compatibility issues are complicated by the
-fact that producers and consumers of events are highly asynchronous and
-can’t use content-negotiation techniques that are available to REST
-style clients and servers. This places a higher bar on producers to
-maintain compatibility as they will not be in a position to serve
-versioned media types on demand.</p>
-</div>
-<div class="paragraph">
-<p>For event schema, these are considered backward compatible changes, as
-seen by consumers -</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Adding new optional fields to JSON objects.</p>
-</li>
-<li>
-<p>Changing the order of fields (field order in objects is arbitrary).</p>
-</li>
-<li>
-<p>Changing the order of values with same type in an array.</p>
-</li>
-<li>
-<p>Removing optional fields.</p>
-</li>
-<li>
-<p>Removing an individual value from an enumeration.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>These are considered backwards-incompatible changes, as seen by
-consumers -</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Removing required fields from JSON objects.</p>
-</li>
-<li>
-<p>Changing the default value of a field.</p>
-</li>
-<li>
-<p>Changing the type of a field, object, enum or array.</p>
-</li>
-<li>
-<p>Changing the order of values with different type in an array (also
-known as a tuple).</p>
-</li>
-<li>
-<p>Adding a new optional field to redefine the meaning of an existing
-field (also known as a co-occurrence constraint).</p>
-</li>
-<li>
-<p>Adding a value to an enumeration (note that <a href="#112"><code>x-extensible-enum</code></a>
-is not available in JSON Schema)</p>
-</li>
-</ul>
-</div>
+<p>WIP: At this point in time we do not have strict standards for event driven services.</p>
 </div>
 </div>
 </div>
@@ -9148,29 +7639,8 @@ workflow with OpenAPI YAML files (sorted alphabetically):</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong><a href="https://github.com/zalando/connexion">Connexion</a>:</strong>
-OpenAPI First framework for Python on top of Flask</p>
-</li>
-<li>
-<p><strong><a href="https://github.com/zalando-stups/friboo">Friboo</a>:</strong>
-utility library to write microservices in Clojure with support for Swagger and OAuth</p>
-</li>
-<li>
-<p><strong><a href="https://github.com/zalando/api-first-hand">Api-First-Hand</a>:</strong>
-API-First Play Bootstrapping Tool for Swagger/OpenAPI specs</p>
-</li>
-<li>
-<p><strong><a href="https://github.com/swagger-api/swagger-codegen">Swagger Codegen</a>:</strong>
-template-driven engine to generate client code in different languages by
-parsing Swagger Resource Declaration</p>
-</li>
-<li>
-<p><strong><a href="https://github.com/zalando-stups/swagger-codegen-tooling">Swagger Codegen Tooling</a>:</strong>
-plugin for Maven that generates pieces of code from OpenAPI specification</p>
-</li>
-<li>
-<p><strong><a href="https://github.com/zalando/intellij-swagger">Swagger Plugin for IntelliJ IDEA</a>:</strong>
-plugin to help you easily edit Swagger specification files inside IntelliJ IDEA</p>
+<p><strong><a href="https://fastapi.tiangolo.com/">FastAPI</a>:</strong>
+FastAPI framework</p>
 </li>
 </ul>
 </div>
@@ -9185,30 +7655,6 @@ Integrations</a>, but most of them do not fit our API First approach.</p>
 <div class="paragraph">
 <p>These utility libraries support you in implementing various parts of our
 RESTful API guidelines (sorted alphabetically):</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong><a href="https://github.com/zalando/problem">Problem</a>:</strong>
-Java library that implements application/problem+json</p>
-</li>
-<li>
-<p><strong><a href="https://github.com/zalando/problem-spring-web">Problems for Spring Web MVC</a>:</strong>
-library for handling Problems in Spring Web MVC</p>
-</li>
-<li>
-<p><strong><a href="https://github.com/zalando/jackson-datatype-money">Jackson Datatype Money</a>:</strong>
-extension module to properly support datatypes of javax.money</p>
-</li>
-<li>
-<p><strong><a href="https://github.com/zalando/tracer">Tracer</a>:</strong>
-call tracing and log correlation in distributed systems</p>
-</li>
-<li>
-<p><strong><a href="https://github.com/zalando/twintip-spring-web">TWINTIP Spring Integration</a>:</strong>
-API discovery endpoint for Spring Web MVC</p>
-</li>
-</ul>
 </div>
 </div>
 </div>
@@ -9672,6 +8118,9 @@ The latter changes are additionally labeled with "Rule Change" here.</p>
 </div>
 <div class="sect2">
 <h3 id="rule-changes"><a class="link" href="#rule-changes">Rule Changes</a></h3>
+<div class="paragraph">
+<p><a href="#192"><span class="must-keyword"><strong>MUST</strong></span> publish OpenAPI specification</a>, Removed Zalando specific part</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -9699,7 +8148,7 @@ The latter changes are additionally labeled with "Rule Change" here.</p>
 <p><code>2021-03-19</code>: clarity on <a href="#167"><span class="must-keyword"><strong>MUST</strong></span> use JSON as payload data interchange format</a>.</p>
 </li>
 <li>
-<p><code>2021-03-15</code>: <a href="#242"><span class="must-keyword"><strong>MUST</strong></span> provide explicit event ordering for data change events</a> changed from <span class="should-keyword"><strong>SHOULD</strong></span> to <span class="must-keyword"><strong>MUST</strong></span>; improve clarity around <a href="#203">event ordering</a>.</p>
+<p><code>2021-03-15</code>: <a href="#242">[242]</a> changed from <span class="should-keyword"><strong>SHOULD</strong></span> to <span class="must-keyword"><strong>MUST</strong></span>; improve clarity around <a href="#203">event ordering</a>.</p>
 </li>
 <li>
 <p><code>2021-03-19</code>: best practice section <a href="#cursor-based-pagination">Cursor-based pagination in RESTful APIs</a></p>
@@ -9714,7 +8163,7 @@ The latter changes are additionally labeled with "Rule Change" here.</p>
 <p><code>2021-01-19</code>: more details for <a href="#get-with-body"><code>GET with body</code></a> and <a href="#delete-with-body"><code>DELETE with body</code></a> (<a href="#148"><span class="must-keyword"><strong>MUST</strong></span> use HTTP methods correctly</a>).</p>
 </li>
 <li>
-<p><code>2020-09-29</code>: include models for headers to be included by reference in API definitions (<a href="#183"><span class="should-keyword"><strong>SHOULD</strong></span> use only the specified proprietary Zalando headers</a>)</p>
+<p><code>2020-09-29</code>: include models for headers to be included by reference in API definitions (<a href="#183"><span class="should-keyword"><strong>SHOULD</strong></span> use only the specified proprietary headers</a>)</p>
 </li>
 <li>
 <p><code>2020-09-08</code>: add exception for legacy host names to <a href="#224"><span class="must-keyword"><strong>MUST</strong></span> follow naming convention for hostnames</a></p>
@@ -9729,7 +8178,7 @@ The latter changes are additionally labeled with "Rule Change" here.</p>
 <p><code>2020-08-24</code>: change "<span class="must-keyword"><strong>MUST</strong></span> avoid trailing slashes" to <a href="#136"><span class="must-keyword"><strong>MUST</strong></span> use normalized paths without empty path segments and trailing slashes</a>.</p>
 </li>
 <li>
-<p><code>2020-08-20</code>: change <a href="#183"><span class="should-keyword"><strong>SHOULD</strong></span> use only the specified proprietary Zalando headers</a> from <span class="must-keyword"><strong>MUST</strong></span> to <span class="should-keyword"><strong>SHOULD</strong></span>, mention gateway-specific headers (which are not part of the public API).</p>
+<p><code>2020-08-20</code>: change <a href="#183"><span class="should-keyword"><strong>SHOULD</strong></span> use only the specified proprietary headers</a> from <span class="must-keyword"><strong>MUST</strong></span> to <span class="should-keyword"><strong>SHOULD</strong></span>, mention gateway-specific headers (which are not part of the public API).</p>
 </li>
 <li>
 <p><code>2020-06-30</code>: add details to <a href="#114"><span class="must-keyword"><strong>MUST</strong></span> use media type versioning</a></p>
@@ -9780,16 +8229,16 @@ The latter changes are additionally labeled with "Rule Change" here.</p>
 <p><code>2019-06-25</code>: change <a href="#154"><span class="must-keyword"><strong>MUST</strong></span> define collection format of header and query parameters</a> from <span class="should-keyword"><strong>SHOULD</strong></span> to <span class="must-keyword"><strong>MUST</strong></span>, use OpenAPI 3 syntax</p>
 </li>
 <li>
-<p><code>2019-06-13</code>: remove <code>X-App-Domain</code> from <a href="#183"><span class="should-keyword"><strong>SHOULD</strong></span> use only the specified proprietary Zalando headers</a>.</p>
+<p><code>2019-06-13</code>: remove <code>X-App-Domain</code> from <a href="#183"><span class="should-keyword"><strong>SHOULD</strong></span> use only the specified proprietary headers</a>.</p>
 </li>
 <li>
-<p><code>2019-05-17</code>: add <code>X-Mobile-Advertising-Id</code> to <a href="#183"><span class="should-keyword"><strong>SHOULD</strong></span> use only the specified proprietary Zalando headers</a>.</p>
+<p><code>2019-05-17</code>: add <code>X-Mobile-Advertising-Id</code> to <a href="#183"><span class="should-keyword"><strong>SHOULD</strong></span> use only the specified proprietary headers</a>.</p>
 </li>
 <li>
 <p><code>2019-04-09</code> New rule <a href="#234"><span class="must-keyword"><strong>MUST</strong></span> only use durable and immutable remote references</a></p>
 </li>
 <li>
-<p><code>2019-02-19</code>: New rule <a href="#233"><span class="must-keyword"><strong>MUST</strong></span> support <code>X-Flow-ID</code></a> extracted + expanded from <a href="#183"><span class="should-keyword"><strong>SHOULD</strong></span> use only the specified proprietary Zalando headers</a>.</p>
+<p><code>2019-02-19</code>: New rule <a href="#233">[233]</a> extracted + expanded from <a href="#183"><span class="should-keyword"><strong>SHOULD</strong></span> use only the specified proprietary headers</a>.</p>
 </li>
 <li>
 <p><code>2019-01-24:</code> Improve guidance on caching (<a href="#149"><span class="must-keyword"><strong>MUST</strong></span> fulfill common method properties</a>, <a href="#227"><span class="must-keyword"><strong>MUST</strong></span> document cachable <code>GET</code>, <code>HEAD</code>, and <code>POST</code> endpoints</a>).</p>
@@ -9801,7 +8250,7 @@ The latter changes are additionally labeled with "Rule Change" here.</p>
 <p><code>2019-01-16</code>: Change <a href="#135"><span class="should-keyword"><strong>SHOULD</strong></span> not use /api as base path</a> from <span class="may-keyword"><strong>MAY</strong></span> to {SHOULD NOT}</p>
 </li>
 <li>
-<p><code>2018-10-19</code>: Add <code>ordering_key_field</code> to event type definition schema (<a href="#197"><span class="must-keyword"><strong>MUST</strong></span> specify and register events as event types</a>, <a href="#203"><span class="should-keyword"><strong>SHOULD</strong></span> provide explicit event ordering for general events</a>)</p>
+<p><code>2018-10-19</code>: Add <code>ordering_key_field</code> to event type definition schema (<a href="#197">[197]</a>, <a href="#203">[203]</a>)</p>
 </li>
 <li>
 <p><code>2018-09-28</code>: New rule <a href="#228"><span class="must-keyword"><strong>MUST</strong></span> use URL-friendly resource identifiers</a></p>
@@ -9813,7 +8262,7 @@ The latter changes are additionally labeled with "Rule Change" here.</p>
 <p><code>2018-08-10</code>: New rule <a href="#226"><span class="must-keyword"><strong>MUST</strong></span> document implicit response filtering</a></p>
 </li>
 <li>
-<p><code>2018-07-12</code>: Add <code>audience</code> field to event type definition (<a href="#197"><span class="must-keyword"><strong>MUST</strong></span> specify and register events as event types</a>)</p>
+<p><code>2018-07-12</code>: Add <code>audience</code> field to event type definition (<a href="#197">[197]</a>)</p>
 </li>
 <li>
 <p><code>2018-06-11:</code> Introduced new naming guidelines for host, permission, and event names.</p>
@@ -9959,57 +8408,6 @@ document.body.classList.add('toc-left');
 nav.append(ul);
 header.prepend(nav);
 </script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-130687305-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-130687305-1');
-
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-130687305-1', 'auto');
-
-  function trackPageview() {
-    var title = (location.hash && location.hash.length > 0) ?
-      document.getElementById(location.hash.replace('#','')).textContent :
-      document.title;
-
-    ga('send', 'pageview', {'page': location.pathname + location.hash, 'title': title});
-  }
-
-  if ("onhashchange" in window)
-    window.onhashchange = trackPageview;
-
-  trackPageview(); // track user's first pageview
-</script>
-
-<!-- Cookies Consent -->
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
-<script>
-window.addEventListener("load", function(){
-window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#eaf7f7",
-      "text": "#5c7291"
-    },
-    "button": {
-      "background": "#56cbdb",
-      "text": "#ffffff"
-    }
-  },
-  "content": {
-    "message": "This web site uses cookies to analyze the general behavior of visitors."
-  }
-})});
-</script>
 </div>
 </div>
 </div>
@@ -10025,7 +8423,7 @@ window.cookieconsent.initialise({
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-11-24 17:26:05 UTC
+Last updated 2021-12-01 01:15:58 UTC
 </div>
 </div>
 </body>

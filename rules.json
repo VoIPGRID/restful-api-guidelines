@@ -14,7 +14,7 @@
     },
     {
       "id": "#103",
-      "title": "MUST write APIs using U.S. English"
+      "title": "MUST write APIs using U.K. English"
     },
     {
       "id": "#104",
@@ -238,7 +238,7 @@
     },
     {
       "id": "#163",
-      "title": "MAY use REST maturity level 3 - HATEOAS"
+      "title": "SHOULD avoid REST maturity level 3 - HATEOAS"
     },
     {
       "id": "#164",
@@ -314,7 +314,7 @@
     },
     {
       "id": "#183",
-      "title": "SHOULD use only the specified proprietary Zalando headers"
+      "title": "SHOULD use only the specified proprietary headers"
     },
     {
       "id": "#184",
@@ -355,86 +355,6 @@
     {
       "id": "#193",
       "title": "SHOULD monitor API usage"
-    },
-    {
-      "id": "#194",
-      "title": "MUST treat events as part of the service interface"
-    },
-    {
-      "id": "#195",
-      "title": "MUST make event schema available for review"
-    },
-    {
-      "id": "#196",
-      "title": "MUST ensure event schema conforms to OpenAPI schema object"
-    },
-    {
-      "id": "#197",
-      "title": "MUST specify and register events as event types"
-    },
-    {
-      "id": "#198",
-      "title": "MUST ensure that events conform to an event category"
-    },
-    {
-      "id": "#199",
-      "title": "MUST ensure that events define useful business resources"
-    },
-    {
-      "id": "#200",
-      "title": "MUST ensure that events do not provide sensitive data"
-    },
-    {
-      "id": "#201",
-      "title": "MUST use general events to signal steps in business processes"
-    },
-    {
-      "id": "#202",
-      "title": "MUST use data change events to signal mutations"
-    },
-    {
-      "id": "#203",
-      "title": "SHOULD provide explicit event ordering for general events"
-    },
-    {
-      "id": "#204",
-      "title": "SHOULD use the hash partition strategy for data change events"
-    },
-    {
-      "id": "#205",
-      "title": "SHOULD ensure that data change events match the APIs resources"
-    },
-    {
-      "id": "#207",
-      "title": "MUST indicate ownership of event types"
-    },
-    {
-      "id": "#208",
-      "title": "MUST define events compliant with overall API guidelines"
-    },
-    {
-      "id": "#209",
-      "title": "MUST maintain backwards compatibility for events"
-    },
-    {
-      "id": "#210",
-      "title": "SHOULD avoid `additionalProperties` in event type schemas"
-    },
-    {
-      "id": "#211",
-      "title": "MUST use unique event identifiers"
-    },
-    {
-      "id": "#212",
-      "title": "SHOULD design for idempotent out-of-order processing"
-    },
-    {
-      "id": "#213",
-      "title": "MUST follow naming convention for event type names"
-    },
-    {
-      "id": "#214",
-      "title": "MUST prepare event consumers for duplicate events"
     },
     {
       "id": "#215",
@@ -497,10 +417,6 @@
       "title": "Should use secondary key for idempotent `POST` design"
     },
     {
-      "id": "#233",
-      "title": "MUST supportX-Flow-ID"
-    },
-    {
       "id": "#234",
       "title": "MUST only use durable and immutable remote references"
     },
@@ -533,28 +449,12 @@
       "title": "MAY expose compound keys as resource identifiers"
     },
     {
-      "id": "#242",
-      "title": "MUST provide explicit event ordering for data change events"
-    },
-    {
       "id": "#243",
       "title": "MUST use official HTTP status codes"
     },
     {
       "id": "#244",
       "title": "SHOULD use content negotiation, if clients may choose from different resource representations"
-    },
-    {
-      "id": "#245",
-      "title": "MUST carefully define the compatibility mode "
-    },
-    {
-      "id": "#246",
-      "title": "MUST use semantic versioning of event type schemas "
-    },
-    {
-      "id": "#247",
-      "title": "MUST provide mandatory event metadata"
     },
     {
       "id": "#248",
