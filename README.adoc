@@ -1,4 +1,4 @@
-= Developing Restful APIs: A Comprehensive Set of Guidelines by Zalando
+= Developing Restful APIs: A Comprehensive Set of Guidelines
 
 
 https://github.com/zalando/restful-api-guidelines/actions/[image:https://github.com/zalando/restful-api-guidelines/actions/workflows/build.yml/badge.svg[Build status]]
