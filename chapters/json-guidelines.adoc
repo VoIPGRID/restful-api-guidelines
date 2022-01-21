@@ -347,46 +347,45 @@ addressee:
 
 address:
   description:
-    an address of a location/destination
+    An address of a location.
   type: object
   properties:
-    care_of:
-      description: |
-        (aka c/o) the person that resides at the address, if different from
-        addressee. E.g. used when sending a personal parcel to the
-        office /someone else's home where the addressee resides temporarily
-      type: string
-      example: Consulting Services GmbH
     street:
       description: |
-        the full street address including house number and street name
+        The street name, without number.
       type: string
-      example: Schönhauser Allee 103
-    additional:
+      example: Lübeckweg
+     number:
+        description: |
+          The house number.
+        type: integer
+        example: 2
+    complement:
       description: |
-        further details like building name, suite, apartment number, etc.
+        Optional house number suffixes.
       type: string
-      example: 2. Hinterhof rechts
+      example: A
     city:
       description: |
         name of the city / locality
       type: string
-      example: Berlin
-    zip:
+      example: Groningen
+    zipcode:
       description: |
         zip code or postal code
       type: string
-      example: 14265
+      example: 9723HE
     country_code:
       description: |
         the country code according to
         [iso-3166-1-alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
       type: string
-      example: DE
+      example: NL
   required:
     - street
+    - number
     - city
-    - zip
+    - zipcode
     - country_code
 ----
 
