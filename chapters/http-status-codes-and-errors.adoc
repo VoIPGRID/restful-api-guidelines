@@ -350,9 +350,8 @@ number of requests made within a given window for each named entity.
 failure information beyond the HTTP response status code to transports the
 failure kind (`type` / `title`) and the failure cause and location (`instant` /
 `detail`). To make best use of this additional failure information, every
-endpoints must be capable of returning a Problem JSON on client usage errors
-({4xx} status codes) as well as server side processing errors ({5xx} status
-codes).
+endpoints must be capable of returning a Problem JSON on server side
+processing errors ({5xx} status codes).
 
 *Note:* Clients must be robust and *not rely* on a Problem JSON object
 being returned, since (a) failure responses may be created by infrastructure
