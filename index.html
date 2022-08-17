@@ -5522,9 +5522,8 @@ number of requests made within a given window for each named entity.</p>
 failure information beyond the HTTP response status code to transports the
 failure kind (<code>type</code> / <code>title</code>) and the failure cause and location (<code>instant</code> /
 <code>detail</code>). To make best use of this additional failure information, every
-endpoints must be capable of returning a Problem JSON on client usage errors
-(<a href="#client-side-error-codes" class="status-code">4xx</a> status codes) as well as server side processing errors (<a href="#server-side-error-codes" class="status-code">5xx</a> status
-codes).</p>
+endpoints must be capable of returning a Problem JSON on server side
+processing errors (<a href="#server-side-error-codes" class="status-code">5xx</a> status codes).</p>
 </div>
 <div class="paragraph">
 <p><strong>Note:</strong> Clients must be robust and <strong>not rely</strong> on a Problem JSON object
@@ -8422,7 +8421,7 @@ header.prepend(nav);
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-01-21 14:32:45 UTC
+Last updated 2022-08-17 09:10:10 UTC
 </div>
 </div>
 </body>
